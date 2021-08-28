@@ -15,6 +15,7 @@ import Wave from 'react-wavify'
 
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
+import ResumeSVG from "./resume.svg"
 
 const BottomHalf = () => {
 
@@ -82,26 +83,7 @@ const BottomHalf = () => {
 
                 <div style={{justifyContent: "center", alignItems: 'center', display: "flex", flexDirection: "column", padding: "10px"}}>
                     <Paper elevation={6}>
-                        <Document 
-                            file={file} 
-                            onLoadSuccess={onDocumentLoadSuccess}
-                            options={options}
-                            
-                        >
-                            {
-                                Array.from(
-                                    new Array(numPages),
-                                    (el, index) => (
-                                    <Page
-                                        key={`page_${index + 1}`}
-                                        pageNumber={index + 1}
-                                        width={340}
-                                        height={442}
-                                    />
-                                    ),
-                                )
-                            }
-                        </Document>
+                        <img src={ResumeSVG} style={{maxWidth: "500px", height: "95%"}}/>
                     </Paper>
                     <br></br>
                     <a href={resume} download style={{textDecoration: "none"}}>
