@@ -4,6 +4,11 @@ import NET from 'vanta/dist/vanta.net.min'
 import {Typography, Container, Fade, Grid, Link} from "@material-ui/core"
 import {motion} from "framer-motion"
 
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import InstagramIcon from '@material-ui/icons/Instagram';
+
 import profile from "./chris-profile.jpeg"
 
 const TopHalf = (props) => {
@@ -27,7 +32,7 @@ const TopHalf = (props) => {
           backgroundColor: 0x31,
           spacing: 25.00,
           maxDistance: 20.00,
-          points: 6
+          points: 4
         })
       )
     }
@@ -36,13 +41,29 @@ const TopHalf = (props) => {
     }
   }, [vantaEffect])
 
-  const titles = ['Student', 'Developer', 'Musician']
-  const links = ['About', 'Portfolio', 'Contact']
+  const titles = [
+    'Student',
+    'Developer',
+    'Musician'
+  ]
+
+  const links = [
+    {Name: 'Projects', Scroll: "#projects"},
+    {Name: 'Resume', Scroll: "#resume"},
+    {Name: 'More', Scroll: "#more"}
+  ]
+
+  const contactLinks = [
+    {Name: "Mail", Icon: <MailOutlineIcon />, Link: "mailto:cgeraldfarber@icloud.com"},
+    {Name: "LinkedIn", Icon: <LinkedInIcon />, Link: "https://www.linkedin.com/in/chris-farber-ba90181a4/"},
+    {Name: "GitHub", Icon: <GitHubIcon />, Link: "https://github.com/farbs03"},
+    {Name: "Instagram", Icon: <InstagramIcon />, Link: "https://www.instagram.com/cfarbs03/"}
+  ]
 
   return (
     <div ref={myRef}>
       <br></br>
-      <div style={{padding: "10px", textAlign: "right", color: "white"}}>
+      <Container maxWidth="xl" style={{textAlign: "right", color: "white", paddingTop: "10px"}}>
         {links.map((link) => (
           <motion.div
               initial={{y: 0}}
@@ -54,18 +75,18 @@ const TopHalf = (props) => {
               style={{display: "inline-block", marginRight: "20px"}}
           >
             <Link 
-              href="#"
+              href={link.Scroll}
               style={{
                 textDecoration: "none",
                 color: "inherit",
                 fontSize: "18px",
               }}
             >
-              {link}
+              {link.Name}
             </Link>
           </motion.div>
         ))}
-        </div>
+        </Container>
         <Container maxWidth="md" justifyContent="center" style={{textAlign: "center", color: "white", padding: "10px"}}>
             
             <br></br>
@@ -73,6 +94,7 @@ const TopHalf = (props) => {
             <motion.div style={{width: "150px", height: "150px", borderRadius: "50%", background:"white", marginLeft: "auto", marginRight: "auto", border: "2px solid"}} initial={{opacity: 0}} animate={{opacity: 1}}>
                 <img src={profile} style={{width: "100%", height: "100%", borderRadius: "50%"}} alt="profile-pic"/>
             </motion.div>
+            <br></br>
             <br></br>
             <Fade in mountOnEnter unmountOnExit style={{transitionDelay: "100ms", transitionDuration: "1000ms"}}>
                 <div>
@@ -87,6 +109,28 @@ const TopHalf = (props) => {
                 </Fade>
             ))}
             <br></br>
+            <br></br>
+            <div style={{width: "280px", margin: "10px auto", textAlign: 'center'}}>
+                {contactLinks.map((contact) => (
+                    <a href={contact.Link} target="_blank">
+                        <motion.div 
+                            style={{
+                                width: "50px", 
+                                height: "50px", 
+                                display: "inline-block", 
+                                margin: "0px 8px", 
+                                color: "#9369db", 
+                                borderRadius: "50%", 
+                                border: "2px solid #9369db"
+                            }}
+                            initial={{y: 0}}
+                            whileHover={{y: -5}}
+                        >
+                            <div style={{marginTop: "12px"}}>{contact.Icon}</div>
+                        </motion.div>
+                    </a>
+                ))}
+            </div>
             <br></br>
             <Typography style={{fontSize: "18px", marginTop: "5px"}}>Hi, welcome to my website! Here, you can take a look at some of the projects I've done, contact me, and check out some of my other hobbies apart from coding.</Typography>
             <br></br>
