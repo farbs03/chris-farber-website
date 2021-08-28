@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { Container, Typography, Slide, Link } from "@material-ui/core"
+import { Container, Typography, Slide, Link, Button, Paper } from "@material-ui/core"
 
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -8,12 +8,30 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 
 import {motion} from "framer-motion"
 
+import GetAppIcon from '@material-ui/icons/GetApp';
+
 import Slideshow from "./Slideshow"
 import Wave from 'react-wavify'
 
-import resume from "./resume.pdf"
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+
 
 const BottomHalf = () => {
+
+    const resume = './chris-farber-resume.pdf'
+
+    const options = {
+        cMapUrl: 'cmaps/',
+        cMapPacked: true,
+    };
+    
+
+    const [numPages, setNumPages] = useState(null);
+    const [file, setFile] = useState('./resume.pdf')
+
+    function onDocumentLoadSuccess({ numPages: nextNumPages }) {
+        setNumPages(nextNumPages);
+    }
 
     return (
         <div>
@@ -37,7 +55,7 @@ const BottomHalf = () => {
                             <Typography variant="h4" style={{fontWeight:"bold", marginLeft: "10px"}}>PROJECTS</Typography>
                         </div>
                         <Typography style={{marginTop: "5px", marginLeft: "18px"}}>
-                            Hi this is some info about me, i am interesting and stuff
+                            Here are some of the projects I'm working on, more on my github page
                         </Typography>
                     </div>
                 </Slide>
@@ -49,18 +67,49 @@ const BottomHalf = () => {
                 </div>
 
                 <br></br>
+                <br></br>
 
                 <Slide in direction="left" id="resume">
                     <div>
                         <div style={{borderRight: "5px solid #9369db", textAlign: "right"}}>
                             <Typography variant="h4" style={{fontWeight:"bold", marginRight: "10px"}}>RESUME</Typography>
                         </div>
-                        <Typography style={{marginTop: "5px", textAlign: "right", marginRight: "18px"}}>
-                            <a href={resume}>Download here</a>
-                        </Typography>
                     </div>
                 </Slide>
+                
+                <br></br>
+                <br></br>
 
+                <div style={{justifyContent: "center", alignItems: 'center', display: "flex", flexDirection: "column", padding: "10px"}}>
+                    <Paper elevation={6}>
+                        <Document 
+                            file={file} 
+                            onLoadSuccess={onDocumentLoadSuccess}
+                            options={options}
+                            
+                        >
+                            {
+                                Array.from(
+                                    new Array(numPages),
+                                    (el, index) => (
+                                    <Page
+                                        key={`page_${index + 1}`}
+                                        pageNumber={index + 1}
+                                        width={340}
+                                        height={442}
+                                    />
+                                    ),
+                                )
+                            }
+                        </Document>
+                    </Paper>
+                    <br></br>
+                    <a href={resume} download style={{textDecoration: "none"}}>
+                        <Button variant="contained" endIcon={<GetAppIcon />} style={{background: "#9369db", color: "white", borderRadius: "30px", textTransform: "none", fontWeight: "bold"}}>
+                            Download Resume
+                        </Button>
+                    </a>
+                </div>
                 <br></br>
                 <br></br>
 
@@ -70,7 +119,7 @@ const BottomHalf = () => {
                             <Typography variant="h4" style={{fontWeight:"bold", marginLeft: "10px"}}>MORE</Typography>
                         </div>
                         <Typography style={{marginTop: "5px", marginLeft: "18px"}}>
-                            Contact tings
+                            Violin and stuff
                         </Typography>
                     </div>
                 </Slide>

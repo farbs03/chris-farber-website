@@ -30,7 +30,7 @@ const TopHalf = (props) => {
           scaleMobile: 1.00,
           color: 0x9369db,
           backgroundColor: 0x31,
-          spacing: 25.00,
+          spacing: 26.00,
           maxDistance: 20.00,
           points: 4
         })

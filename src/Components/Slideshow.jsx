@@ -9,20 +9,23 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 import IncentivaHome from "./incentiva-home.png"
 import AIStuff from "./ai-stuff-image.png"
+import MentalHealthBot from "./mental-health-bot-image.png"
+
+import { Paper } from "@material-ui/core";
 
 
 export const images = [
     {
       image: IncentivaHome,
-      description: <p>Incentiva</p>
+      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://incentiva.app/">Incentiva</a>
     },
     {
       image: AIStuff,
-      description: <p>AI Stuff</p> 
+      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://aistuff.netlify.app/">AI Stuff</a> 
     },
     {
-      image: "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
-      description: <p>Image 3</p>
+      image: MentalHealthBot,
+      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://mentalhealthbot.netlify.app/">Mental Health Chatbot</a>
     }
 ];
 
@@ -70,7 +73,7 @@ const Slideshow = () => {
   const paginate = (newDirection) => {
     setPage([page + newDirection, newDirection]);
   };
-
+  
   return (
     <div className="example-container">
       <AnimatePresence initial={false} custom={direction}>
@@ -100,17 +103,17 @@ const Slideshow = () => {
           }}
         >
           <motion.img src={images[imageIndex].image} className="slideshow-img"/>
-          <motion.div className="slideshow-img" style={{background: "white", marginTop: "335px", width:"250px", textAlign: "center"}}>
+          <motion.div className="slideshow-img" style={{background: "white", marginTop: "290px", width:"250px", textAlign: "center"}}>
             {images[imageIndex].description}
           </motion.div>
         </motion.div>
       </AnimatePresence>
-      <div className="next" onClick={() => paginate(1)}>
+      <Paper className="next" onClick={() => paginate(1)} elevation={4} style={{borderRadius: "50%"}}>
         <NavigateNextIcon />
-      </div>
-      <div className="prev" onClick={() => paginate(-1)}>
+      </Paper>
+      <Paper className="prev" onClick={() => paginate(-1)} elevation={4} style={{borderRadius: "50%"}}>
         <NavigateBeforeIcon />
-      </div>
+      </Paper>
     </div>
   );
 };
