@@ -40,14 +40,28 @@ const BottomHalf = () => {
                 <Slide in direction="left">
                     <div>
                         <div style={{borderRight: "5px solid #9369db", textAlign: "right"}}>
-                            <Typography variant="h4" style={{fontWeight:"bold", marginRight: "10px"}}>CONTACT</Typography>
+                            <Typography variant="h4" style={{fontWeight:"bold", marginRight: "10px"}}>PORTFOLIO</Typography>
                         </div>
                         <Typography style={{marginTop: "5px", textAlign: "right", marginRight: "18px"}}>
+                            Things i've done
+                        </Typography>
+                    </div>
+                </Slide>
+
+                <br></br>
+                <br></br>
+
+                <Slide in direction="right">
+                    <div>
+                        <div style={{borderLeft: "5px solid #9369db"}}>
+                            <Typography variant="h4" style={{fontWeight:"bold", marginLeft: "10px"}}>CONTACT</Typography>
+                        </div>
+                        <Typography style={{marginTop: "5px", marginLeft: "18px"}}>
                             Contact tings
                         </Typography>
                     </div>
                 </Slide>
-                
+
                 <div style={{textAlign: "center", margin: "10px 0px"}}>
                     {contactLinks.map((contact) => (
                         <Link href={contact.Link}>
@@ -69,21 +83,7 @@ const BottomHalf = () => {
                         </Link>
                     ))}
                 </div>
-
-                <br></br>
-                <br></br>
-
-                <Slide in direction="right">
-                    <div>
-                        <div style={{borderLeft: "5px solid #9369db"}}>
-                            <Typography variant="h4" style={{fontWeight:"bold", marginLeft: "10px"}}>MORE</Typography>
-                        </div>
-                        <Typography style={{marginTop: "5px", marginLeft: "18px"}}>
-                            More things haha
-                        </Typography>
-                    </div>
-                </Slide>
-
+                
             </Container>
         </div>
     )

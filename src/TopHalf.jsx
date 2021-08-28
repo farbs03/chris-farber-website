@@ -25,9 +25,9 @@ const TopHalf = (props) => {
           scaleMobile: 1.00,
           color: 0x9369db,
           backgroundColor: 0x31,
-          spacing: 20.00,
-          maxDistance: 22.00,
-          points: 8
+          spacing: 25.00,
+          maxDistance: 20.00,
+          points: 6
         })
       )
     }
@@ -37,35 +37,35 @@ const TopHalf = (props) => {
   }, [vantaEffect])
 
   const titles = ['Student', 'Developer', 'Musician']
-  const links = ['About', 'Contact', 'More']
+  const links = ['About', 'Portfolio', 'Contact']
 
   return (
     <div ref={myRef}>
-      <Grid container direction="row" spacing={6} justifyContent="flex-end" style={{color: "white", padding: "20px"}}>
-          {links.map((link) => (
-              <Grid item>
-                  <motion.div
-                      initial={{y: 0}}
-                      whileHover={{
-                          y: -1,
-                          color: "#9369db"
-                      }}
-                      transition={{ duration: 0.2 }}
-                  >
-                    <Link 
-                      href="#"
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        fontSize: "18px",
-                      }}
-                    >
-                      {link}
-                    </Link>
-                  </motion.div>
-              </Grid>
-          ))}
-        </Grid>
+      <br></br>
+      <div style={{padding: "10px", textAlign: "right", color: "white"}}>
+        {links.map((link) => (
+          <motion.div
+              initial={{y: 0}}
+              whileHover={{
+                  y: -1,
+                  color: "#9369db"
+              }}
+              transition={{ duration: 0.2 }}
+              style={{display: "inline-block", marginRight: "20px"}}
+          >
+            <Link 
+              href="#"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                fontSize: "18px",
+              }}
+            >
+              {link}
+            </Link>
+          </motion.div>
+        ))}
+        </div>
         <Container maxWidth="md" justifyContent="center" style={{textAlign: "center", color: "white", padding: "10px"}}>
             
             <br></br>
