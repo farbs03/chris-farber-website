@@ -135,6 +135,8 @@ const TopHalf = (props) => {
             <Typography style={{fontSize: "18px", marginTop: "5px"}}>Hi, welcome to my website! Here, you can take a look at some of the projects I've done, contact me, and check out some of my other hobbies apart from coding.</Typography>
             <br></br>
         </Container>
+        <br></br>
+        
     </div>
   )
 }

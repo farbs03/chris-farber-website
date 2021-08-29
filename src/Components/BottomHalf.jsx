@@ -36,19 +36,10 @@ const BottomHalf = () => {
 
     return (
         <div>
-            <Wave fill='#000031'
-                paused={false}
-                options={{
-                    height: 10,
-                    amplitude: 20,
-                    speed: 0.15,
-                    points: 3
-                }}
-                style={{transform: "rotate(180deg)", marginTop: "-20px"}}
-            />
+            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031"}}></div>
             <br></br>
             <br></br>
-            <Container maxWidth="lg">
+            <Container maxWidth="lg" style={{marginTop: "-50px"}}>
 
                 <Slide in direction="right" id="projects">
                     <div>
@@ -60,8 +51,6 @@ const BottomHalf = () => {
                         </Typography>
                     </div>
                 </Slide>
-
-                <br></br>
 
                 <div style={{maxWidth: "500px", marginLeft: 'auto', marginRight: "auto", padding: "10px"}}>
                     <Slideshow />
@@ -81,15 +70,38 @@ const BottomHalf = () => {
                 <br></br>
                 <br></br>
 
-                <div style={{justifyContent: "center", alignItems: 'center', display: "flex", flexDirection: "column", padding: "10px"}}>
-                    <Paper elevation={6}>
-                        <img src={ResumeSVG} style={{maxWidth: "500px", height: "95%"}}/>
+                <div 
+                    style={{
+                        justifyContent: "center", 
+                        alignItems: 'center', 
+                        display: "flex", 
+                        flexDirection: "column", 
+                        padding: "10px",
+                    }}
+                >
+                    <Paper elevation={6} style={{width: "60%", marginLeft:"auto", marginRight:"auto"}}>
+                        <img src={ResumeSVG} style={{width: "100%", height: "100%"}}/>
                     </Paper>
                     <br></br>
                     <a href={resume} download style={{textDecoration: "none"}}>
-                        <Button variant="contained" endIcon={<GetAppIcon />} style={{background: "#9369db", color: "white", borderRadius: "30px", textTransform: "none", fontWeight: "bold"}}>
-                            Download Resume
-                        </Button>
+                        <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
+                            <Button 
+                                variant="contained" 
+                                endIcon={<GetAppIcon />} 
+                                style={{
+                                    background: "#9369db", 
+                                    color: "white", 
+                                    borderRadius: "40px", 
+                                    textTransform: "none", 
+                                    fontWeight: "bold", 
+                                    padding:"20px", 
+                                    fontSize: "18px"
+                                }}
+                                disableRipple
+                            >
+                                Download Resume
+                            </Button>
+                        </motion.div>
                     </a>
                 </div>
                 <br></br>
