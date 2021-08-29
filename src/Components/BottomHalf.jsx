@@ -94,8 +94,8 @@ const BottomHalf = () => {
                                     borderRadius: "40px", 
                                     textTransform: "none", 
                                     fontWeight: "bold", 
-                                    padding:"20px", 
-                                    fontSize: "18px"
+                                    padding:"15px", 
+                                    fontSize: "15px"
                                 }}
                                 disableRipple
                             >
