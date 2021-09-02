@@ -43,7 +43,7 @@ const TopHalf = (props) => {
 
   const titles = [
     'Student',
-    'Coder',
+    'Developer',
     'Musician'
   ]
 
