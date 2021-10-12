@@ -36,7 +36,7 @@ const BottomHalf = () => {
 
     return (
         <div>
-            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031"}}></div>
+            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031", marginTop: "-5px"}}></div>
             <br></br>
             <br></br>
             <Container maxWidth="lg" style={{marginTop: "-50px"}}>
@@ -52,7 +52,7 @@ const BottomHalf = () => {
                     </div>
                 </Slide>
 
-                <div style={{maxWidth: "500px", marginLeft: 'auto', marginRight: "auto", padding: "10px"}}>
+                <div style={{maxWidth: "400px", marginLeft: 'auto', marginRight: "auto", padding: "10px"}}>
                     <Slideshow />
                 </div>
 
@@ -79,7 +79,7 @@ const BottomHalf = () => {
                         padding: "10px",
                     }}
                 >
-                    <Paper elevation={6} style={{width: "60%", marginLeft:"auto", marginRight:"auto"}}>
+                    <Paper elevation={6} style={{maxWidth: "500px", marginLeft:"auto", marginRight:"auto"}}>
                         <img src={ResumeSVG} style={{width: "100%", height: "100%"}}/>
                     </Paper>
                     <br></br>
@@ -95,7 +95,8 @@ const BottomHalf = () => {
                                     textTransform: "none", 
                                     fontWeight: "bold", 
                                     padding:"15px", 
-                                    fontSize: "15px"
+                                    fontSize: "15px",
+                                    marginTop: "10px"
                                 }}
                                 disableRipple
                             >

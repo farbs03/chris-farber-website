@@ -9,7 +9,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
-import profile from "./chris-profile.jpeg"
+import profile from "./chrisfarber.jpg"
 
 const TopHalf = (props) => {
 
@@ -72,7 +72,7 @@ const TopHalf = (props) => {
                   color: "#9369db"
               }}
               transition={{ duration: 0.2 }}
-              style={{display: "inline-block", marginRight: "20px"}}
+              style={{display: "inline-block", margin: "20px"}}
           >
             <Link 
               href={link.Scroll}
@@ -91,7 +91,13 @@ const TopHalf = (props) => {
             
             <br></br>
             <br></br>
-            <motion.div style={{width: "150px", height: "150px", borderRadius: "50%", background:"white", marginLeft: "auto", marginRight: "auto", border: "2px solid"}} initial={{opacity: 0}} animate={{opacity: 1}}>
+            <motion.div 
+              style={{width: "200px", height: "200px", borderRadius: "50%", background:"white", marginLeft: "auto", marginRight: "auto", border: "2px solid"}} 
+              initial={{opacity: 0}} 
+              animate={{opacity: 1}} 
+              whileHover={{scale: 1.02}} 
+              transition={{duration: 0.2}}
+            >
                 <img src={profile} style={{width: "100%", height: "100%", borderRadius: "50%"}} alt="profile-pic"/>
             </motion.div>
             <br></br>

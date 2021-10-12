@@ -17,15 +17,15 @@ import { Paper } from "@material-ui/core";
 export const images = [
     {
       image: IncentivaHome,
-      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://incentiva.app/">Incentiva</a>
+      href: "https://incentiva.app/"
     },
     {
       image: AIStuff,
-      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://aistuff.netlify.app/">AI Stuff</a> 
+      href: "https://aistuff.netlify.app/"
     },
     {
       image: MentalHealthBot,
-      description: <a style={{color: "#9369db", textDecoration: "none"}} target="_blank" href="https://mentalhealthbot.netlify.app/">Mental Health Chatbot</a>
+      href: "https://mentalhealthbot.netlify.app/"
     }
 ];
 
@@ -102,10 +102,9 @@ const Slideshow = () => {
             }
           }}
         >
-          <motion.img src={images[imageIndex].image} className="slideshow-img"/>
-          <motion.div className="slideshow-img" style={{background: "white", marginTop: "290px", width:"250px", textAlign: "center"}}>
-            {images[imageIndex].description}
-          </motion.div>
+          <motion.a style={{textDecoration: "none"}} href={images[imageIndex].href} target="_blank" className="example-container">
+            <motion.img src={images[imageIndex].image} className="slideshow-img"/>
+          </motion.a>
         </motion.div>
       </AnimatePresence>
       <Paper className="next" onClick={() => paginate(1)} elevation={4} style={{borderRadius: "50%"}}>
