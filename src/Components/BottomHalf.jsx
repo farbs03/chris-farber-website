@@ -36,7 +36,7 @@ const BottomHalf = () => {
 
     return (
         <div>
-            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031", marginTop: "-5px"}}></div>
+            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031"}}></div>
             <br></br>
             <br></br>
             <Container maxWidth="lg" style={{marginTop: "-50px"}}>

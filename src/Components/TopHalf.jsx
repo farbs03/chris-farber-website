@@ -72,7 +72,7 @@ const TopHalf = (props) => {
                   color: "#9369db"
               }}
               transition={{ duration: 0.2 }}
-              style={{display: "inline-block", margin: "20px"}}
+              style={{display: "inline-block", margin: "10px"}}
           >
             <Link 
               href={link.Scroll}
@@ -110,13 +110,13 @@ const TopHalf = (props) => {
             {titles.map((title, idx) => (
                 <Fade in mountOnEnter unmountOnExit style={{transitionDelay: `${200 + 100 * idx}ms`, transitionDuration: "1000ms"}}>
                     <div style={{display: "inline-block"}}>
-                    <Typography style={{marginRight: "15px", fontSize: "20px", borderBottom: "2px solid"}}>{title}</Typography>
+                    <Typography style={{margin: "15px", fontSize: "20px", borderBottom: "2px solid"}}>{title}</Typography>
                     </div>
                 </Fade>
             ))}
             <br></br>
             <br></br>
-            <div style={{width: "280px", margin: "10px auto", textAlign: 'center'}}>
+            <div style={{width: "280px", margin: "0px auto", textAlign: 'center'}}>
                 {contactLinks.map((contact) => (
                     <a href={contact.Link} target="_blank">
                         <motion.div 
