@@ -11,11 +11,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 
 import profile from "./chrisfarber.jpg"
 
-const TopHalf = (props) => {
+const TopHalf = () => {
 
   const [vantaEffect, setVantaEffect] = useState(0)
   const myRef = useRef(null)
 
+  /*
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -40,7 +41,8 @@ const TopHalf = (props) => {
       if (vantaEffect) vantaEffect.destroy()
     }
   }, [vantaEffect])
-
+  */
+ 
   const titles = [
     'Student',
     'Developer',
@@ -61,8 +63,7 @@ const TopHalf = (props) => {
   ]
 
   return (
-    <div ref={myRef}>
-      <br></br>
+    <div style={{backgroundColor: "rgb(6, 6, 6)"}}>
       <Container maxWidth="xl" style={{textAlign: "right", color: "white", paddingTop: "10px"}}>
         {links.map((link) => (
           <motion.div
@@ -96,7 +97,7 @@ const TopHalf = (props) => {
               initial={{opacity: 0}} 
               animate={{opacity: 1}} 
               whileHover={{scale: 1.02}} 
-              transition={{duration: 0.2}}
+              transition={{duration: 0.1}}
             >
                 <img src={profile} style={{width: "100%", height: "100%", borderRadius: "50%"}} alt="profile-pic"/>
             </motion.div>

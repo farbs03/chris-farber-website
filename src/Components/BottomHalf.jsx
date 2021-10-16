@@ -1,11 +1,6 @@
 import React, {useState} from "react"
 import { Container, Typography, Slide, Link, Button, Paper } from "@material-ui/core"
 
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import InstagramIcon from '@material-ui/icons/Instagram';
-
 import {motion} from "framer-motion"
 
 import GetAppIcon from '@material-ui/icons/GetApp';
@@ -15,7 +10,7 @@ import Wave from 'react-wavify'
 
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
-import ResumeSVG from "./resume.svg"
+import Resume from "./resume.png"
 
 const BottomHalf = () => {
 
@@ -36,7 +31,7 @@ const BottomHalf = () => {
 
     return (
         <div>
-            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#000031"}}></div>
+            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "rgb(6, 6, 6)"}}></div>
             <br></br>
             <br></br>
             <Container maxWidth="lg" style={{marginTop: "-50px"}}>
@@ -80,7 +75,7 @@ const BottomHalf = () => {
                     }}
                 >
                     <Paper elevation={6} style={{maxWidth: "500px", marginLeft:"auto", marginRight:"auto"}}>
-                        <img src={ResumeSVG} style={{width: "100%", height: "100%"}}/>
+                        <img src={Resume} style={{width: "100%", height: "100%"}}/>
                     </Paper>
                     <br></br>
                     <a href={resume} download style={{textDecoration: "none"}}>
