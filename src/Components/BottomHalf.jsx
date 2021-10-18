@@ -14,7 +14,7 @@ import Resume from "./resume.png"
 
 const BottomHalf = () => {
 
-    const resume = './chris-farber-resume.pdf'
+    const resume = './resume.pdf'
 
     const options = {
         cMapUrl: 'cmaps/',
@@ -31,7 +31,7 @@ const BottomHalf = () => {
 
     return (
         <div>
-            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "rgb(6, 6, 6)"}}></div>
+            <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#0a0a0a"}}></div>
             <br></br>
             <br></br>
             <Container maxWidth="lg" style={{marginTop: "-50px"}}>
@@ -79,7 +79,7 @@ const BottomHalf = () => {
                     </Paper>
                     <br></br>
                     <a href={resume} download style={{textDecoration: "none"}}>
-                        <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
+                        <motion.div whileHover={{scale: 1.02}} whileTap={{scale: 0.98}}>
                             <Button 
                                 variant="contained" 
                                 endIcon={<GetAppIcon />} 
