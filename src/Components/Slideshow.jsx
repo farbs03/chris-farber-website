@@ -11,7 +11,7 @@ import IncentivaHome from "./incentiva-home.png"
 import AIStuff from "./ai-stuff-image.png"
 import MentalHealthBot from "./mental-health-bot-image.png"
 import YoutubeClone from "./youtube-clone-home.png"
-import InstagramClone from "./instagram-clone-home.png"
+import InstagramClone from "./instagram-clone-home.PNG"
 
 import { Paper } from "@material-ui/core";
 
