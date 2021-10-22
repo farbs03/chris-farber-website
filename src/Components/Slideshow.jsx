@@ -10,6 +10,8 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import IncentivaHome from "./incentiva-home.png"
 import AIStuff from "./ai-stuff-image.png"
 import MentalHealthBot from "./mental-health-bot-image.png"
+import YoutubeClone from "./youtube-clone-home.png"
+import InstagramClone from "./instagram-clone-home.png"
 
 import { Paper } from "@material-ui/core";
 
@@ -26,6 +28,14 @@ export const images = [
     {
       image: MentalHealthBot,
       href: "https://mentalhealthbot.netlify.app/"
+    },
+    {
+      image: YoutubeClone,
+      href: "https://youtube-clone-mui.netlify.app/",
+    },
+    {
+      image: InstagramClone,
+      href: "https://instagram-clone-chakra.netlify.app/"
     }
 ];
 
