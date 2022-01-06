@@ -1,38 +1,52 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import { Container, Typography, Slide, Link, Button, Paper } from "@material-ui/core"
-
-import {motion} from "framer-motion"
 
 import GetAppIcon from '@material-ui/icons/GetApp';
 
 import Slideshow from "./Slideshow"
 import Wave from 'react-wavify'
 
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-import Resume from "./resume.png"
+import Resume from "./Resume";
+
+
+const Section = ({children}) => {
+
+    const controls = useAnimation();
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            controls.start('visible');
+        }
+        if (!inView) {
+            controls.start('hidden');
+        }
+    }, [controls, inView]);
+
+    const sectionVariant = {
+        hidden: { scale: 0.5, opacity: 0 },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                duration: 0.5
+            }
+        }
+    }
+    return (
+        <motion.div ref={ref} initial="hidden" animate={controls} variants={sectionVariant}>
+            {children}
+        </motion.div>
+    )
+}
 
 const BottomHalf = () => {
-
-    const resume = './resume.pdf'
-
-    const options = {
-        cMapUrl: 'cmaps/',
-        cMapPacked: true,
-    };
-    
-
-    const [numPages, setNumPages] = useState(null);
-    const [file, setFile] = useState('./resume.pdf')
-
-    function onDocumentLoadSuccess({ numPages: nextNumPages }) {
-        setNumPages(nextNumPages);
-    }
-
     return (
         <div>
             <div style={{height: "100px", clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 0)", background: "#0a0a0a"}}></div>
-            <br></br>
             <br></br>
             <Container maxWidth="lg" style={{marginTop: "-50px"}}>
 
@@ -42,7 +56,7 @@ const BottomHalf = () => {
                             <Typography variant="h4" style={{fontWeight:"bold", marginLeft: "10px"}}>PROJECTS</Typography>
                         </div>
                         <Typography style={{marginTop: "5px", marginLeft: "18px"}}>
-                            Here are some of the projects I'm working on, more on my github page
+                            Here are some of the projects I'm currently working on, more on my github page
                         </Typography>
                     </div>
                 </Slide>
@@ -65,44 +79,12 @@ const BottomHalf = () => {
                 <br></br>
                 <br></br>
 
-                <div 
-                    style={{
-                        justifyContent: "center", 
-                        alignItems: 'center', 
-                        display: "flex", 
-                        flexDirection: "column", 
-                        padding: "10px",
-                    }}
-                >
-                    <Paper elevation={6} style={{maxWidth: "500px", marginLeft:"auto", marginRight:"auto"}}>
-                        <img src={Resume} style={{width: "100%", height: "100%"}}/>
-                    </Paper>
-                    <br></br>
-                    <a href={resume} download style={{textDecoration: "none"}}>
-                        <motion.div whileHover={{scale: 1.02}} whileTap={{scale: 0.98}}>
-                            <Button 
-                                variant="contained" 
-                                endIcon={<GetAppIcon />} 
-                                style={{
-                                    background: "#9369db", 
-                                    color: "white", 
-                                    borderRadius: "40px", 
-                                    textTransform: "none", 
-                                    fontWeight: "bold", 
-                                    padding:"15px", 
-                                    fontSize: "15px",
-                                    marginTop: "10px"
-                                }}
-                                disableRipple
-                            >
-                                Download Resume
-                            </Button>
-                        </motion.div>
-                    </a>
-                </div>
+                <Resume />
+
                 <br></br>
                 <br></br>
 
+                {/*
                 <Slide in direction="right" id="more">
                     <div>
                         <div style={{borderLeft: "5px solid #9369db"}}>
@@ -113,9 +95,7 @@ const BottomHalf = () => {
                         </Typography>
                     </div>
                 </Slide>
-
-                
-                
+                */}
             </Container>
         </div>
     )

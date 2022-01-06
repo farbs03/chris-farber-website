@@ -19,23 +19,28 @@ import { Paper } from "@material-ui/core";
 export const images = [
     {
       image: IncentivaHome,
-      href: "https://incentiva.app/"
+      href: "https://incentiva.app/",
+      name: "Incentiva"
     },
     {
       image: AIStuff,
-      href: "https://aistuff.netlify.app/"
+      href: "https://aistuff.netlify.app/",
+      name: "AI Stuff"
     },
     {
       image: MentalHealthBot,
-      href: "https://mentalhealthbot.netlify.app/"
+      href: "https://mentalhealthbot.netlify.app/",
+      name: "Mental Health Chatbot"
     },
     {
       image: YoutubeClone,
       href: "https://youtube-clone-mui.netlify.app/",
+      name: "Youtube Clone"
     },
     {
       image: InstagramClone,
-      href: "https://instagram-clone-chakra.netlify.app/"
+      href: "https://instagram-clone-chakra.netlify.app/",
+      name: "Instagram Clone"
     }
 ];
 
@@ -85,44 +90,47 @@ const Slideshow = () => {
   };
   
   return (
-    <div className="example-container">
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          className="example-container"
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
-          }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
+    <div>
+      <div className="example-container">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            className="example-container"
+            key={page}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
 
-            if (swipe < -swipeConfidenceThreshold) {
-              paginate(1);
-            } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1);
-            }
-          }}
-        >
-          <motion.a style={{textDecoration: "none"}} href={images[imageIndex].href} target="_blank" className="example-container">
-            <motion.img src={images[imageIndex].image} className="slideshow-img"/>
-          </motion.a>
-        </motion.div>
-      </AnimatePresence>
-      <Paper className="next" onClick={() => paginate(1)} elevation={4} style={{borderRadius: "50%"}}>
-        <NavigateNextIcon />
-      </Paper>
-      <Paper className="prev" onClick={() => paginate(-1)} elevation={4} style={{borderRadius: "50%"}}>
-        <NavigateBeforeIcon />
-      </Paper>
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1);
+              }
+            }}
+          >
+            <motion.a style={{textDecoration: "none"}} href={images[imageIndex].href} target="_blank" className="example-container">
+              <motion.img src={images[imageIndex].image} className="slideshow-img"/>
+            </motion.a>
+          </motion.div>
+        </AnimatePresence>
+        <Paper className="next" onClick={() => paginate(1)} elevation={4} style={{borderRadius: "50%"}}>
+          <NavigateNextIcon />
+        </Paper>
+        <Paper className="prev" onClick={() => paginate(-1)} elevation={4} style={{borderRadius: "50%"}}>
+          <NavigateBeforeIcon />
+        </Paper>
+      </div>
+      <p style={{textAlign: "center", fontSize: "20px", marginTop: "-10px"}}>{images[imageIndex].name}</p>
     </div>
   );
 };

@@ -49,9 +49,8 @@ const TopHalf = (props) => {
   ]
 
   const links = [
-    {Name: 'Projects', Scroll: "#projects"},
-    {Name: 'Resume', Scroll: "#resume"},
-    {Name: 'More', Scroll: "#more"}
+    {Name: 'Projects', id: "projects"},
+    {Name: 'Resume', id: "resume"},
   ]
 
   const contactLinks = [
@@ -88,12 +87,15 @@ const TopHalf = (props) => {
                   }}
                   transition={{ duration: 0.2 }}
               >
-                <motion.a 
-                  href={link.Scroll}
+                <motion.a
+                  onClick={
+                    () => document.getElementById(link.id).scrollIntoView({behavior: 'smooth'})
+                  }
                   style={{
                     textDecoration: "none",
                     color: "inherit",
                     fontSize: "18px",
+                    cursor: "pointer"
                   }}
                 >
                   <Typography>{link.Name}</Typography>
