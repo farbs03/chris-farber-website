@@ -55,25 +55,25 @@ const TopHalf = (props) => {
   ]
 
   return (
-    <div ref={myRef} className='bg-gray-900 h-screen'>
+    <div ref={myRef} className='bg-gray-900 min-h-screen'>
         
       <Navbar />
 
       <div>
-        <div className='mt-12 max-w-7xl mx-auto justify-center text-center text-white p-2'>
+        <div className='mt-4 md:mt-12 max-w-7xl mx-auto justify-center text-center text-white p-2'>
 
           <motion.div 
-            className='w-72 h-72 w- rounded-full mx-auto p-1 bg-gradient-to-r from-cyan-500 to-indigo-500 shadow-lg shadow-indigo-500/50'
+            className='w-52 h-52 md:w-64 md:h-64 rounded-full mx-auto p-1 bg-gradient-to-r from-cyan-500 to-indigo-500 shadow-lg shadow-indigo-500/50'
             initial={{opacity: 0, y: 10}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: 0.4, delay: 0.4}}
           >
             <div
-              className='bg-gray-900 rounded-full w-[17.5rem] h-[17.5rem]'
+              className='bg-gray-900 rounded-full w-[200px] h-[200px]  md:w-[248px] md:h-[248px]'
             >
               <motion.img 
                 src={profile} 
-                className='w-[17.5rem] h-[17.5rem] rounded-full'
+                className='rounded-full w-full h-full'
                 initial={{opacity: 0}} 
                 animate={{opacity: 1}}
                 transition={{duration: 0.4, delay: 0.4}}
@@ -83,8 +83,8 @@ const TopHalf = (props) => {
           </motion.div>
           
           
-          <p className='text-3xl md:text-4xl font-bold text-center mt-6 flex justify-center font-mono'>
-            <span className='text-indigo-500'>$</span>
+          <p className='text-2xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
+            <span className='text-indigo-500 mr-1'>$</span>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -95,21 +95,21 @@ const TopHalf = (props) => {
             />
           </p>
 
-          <div className='flex gap-2 mt-2 justify-center'>
+          <div className='flex gap-4 my-4 justify-center'>
             {titles.map((title, idx) => (
               <motion.p 
                 initial={{opacity: 0, y: 5}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
-                className='m-2 text-xl font-semibold'
+                className='text-xl font-semibold'
               >
-                <span className='text-indigo-500 font-bold'><i className='fas fa-chevron-right' />&nbsp;</span>
+                <span className='text-indigo-500'><i className='fas fa-chevron-right' />&nbsp;</span>
                 {title}
               </motion.p>
             ))}
           </div>
 
-          <div className='flex mx-auto text-center justify-center items-center mt-4 gap-2'>
+          <div className='flex mx-auto text-center justify-center items-center my-4 gap-4'>
               {contactLinks.map((contact, idx) => (
                 <motion.div
                   initial={{opacity: 0, y: 5}}
@@ -128,10 +128,15 @@ const TopHalf = (props) => {
                 </motion.div>
               ))}
           </div>
-          <div className='max-w-2xl text-center text-white mx-auto my-6 text-lg'>
+          <motion.div
+            initial={{opacity: 0, y: 10}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.4, delay: 2.0}} 
+            className='max-w-2xl text-center text-white mx-auto my-6 text-lg'
+          >
             <p className='font-semibold text-2xl'>About Me</p>
             <p className='my-2'>I am a high school student who is passionate about coding and violin. More specifically, I enjoy web development and machine learning, and hope to further these interests in college. More info below!</p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

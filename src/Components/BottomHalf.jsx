@@ -29,7 +29,7 @@ const BottomHalf = () => {
                     fill='rgb(31, 41, 55)'
                     paused={false}
                     options={{
-                        height: 10,
+                        height: 20,
                         amplitude: 10,
                         speed: 0.25,
                         points: 3
@@ -37,7 +37,7 @@ const BottomHalf = () => {
                 />
             </div>
 
-            <div className='dark dark:bg-gray-800 dark:text-white -mt-2'>
+            <div className='dark dark:bg-gray-800 dark:text-white -mt-20'>
                 
                 <div className='max-w-7xl mx-auto p-6'>
                     
