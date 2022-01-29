@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
-import NET from 'vanta/dist/vanta.net.min'
 
-import {Typography, Container, Fade, Grid, Link} from "@material-ui/core"
 import {motion} from "framer-motion"
 
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import profile from "../Assets/profile-pic.png"
+import Navbar from './Navbar'
 
-import profile from "./chrisfarber.jpg"
-import Logo from "./logo.png"
+import Typewriter from 'typewriter-effect';
+import Wave from 'react-wavify';
+
+import NET from "vanta/dist/vanta.net.min.js"
+
+import lines from "../Assets/lines.PNG"
 
 const TopHalf = (props) => {
 
@@ -26,14 +26,13 @@ const TopHalf = (props) => {
           touchControls: false,
           gyroControls: false,
           minHeight: 420.00,
-          minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x9369db,
-          backgroundColor: 0x0a0a0a,
-          spacing: 26.00,
-          maxDistance: 20.00,
-          points: 4
+          color: "rgb(99, 102, 241)",
+          backgroundColor: "rgb(17, 24, 39)",
+          spacing: 30.00,
+          maxDistance: 25.00,
+          points: 5
         })
       )
     }
@@ -41,131 +40,100 @@ const TopHalf = (props) => {
       if (vantaEffect) vantaEffect.destroy()
     }
   }, [vantaEffect])
- 
+
   const titles = [
     'Student',
     'Developer',
     'Musician'
   ]
 
-  const links = [
-    {Name: 'Projects', id: "projects"},
-    {Name: 'Resume', id: "resume"},
-  ]
-
   const contactLinks = [
-    {Name: "Mail", Icon: <MailOutlineIcon />, Link: "mailto:cgeraldfarber@icloud.com"},
-    {Name: "LinkedIn", Icon: <LinkedInIcon />, Link: "https://www.linkedin.com/in/chris-farber-ba90181a4/"},
-    {Name: "GitHub", Icon: <GitHubIcon />, Link: "https://github.com/farbs03"},
-    {Name: "Instagram", Icon: <InstagramIcon />, Link: "https://www.instagram.com/cfarbs03/"}
+    {Name: "Mail", Icon: 'far fa-envelope fa-lg', Link: "mailto:cgeraldfarber@icloud.com"},
+    {Name: "LinkedIn", Icon: 'fab fa-linkedin fa-lg', Link: "https://www.linkedin.com/in/chris-farber-ba90181a4/"},
+    {Name: "GitHub", Icon: "fab fa-github fa-lg", Link: "https://github.com/farbs03"},
+    {Name: "Instagram", Icon: 'fab fa-instagram fa-lg', Link: "https://www.instagram.com/cfarbs03/"}
   ]
 
   return (
-    <div ref={myRef}>
-      <div style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-        <motion.img 
-          src={Logo}
-          alt="logo"
-          style={{
-            width: "100px",
-            height: "50px",
-            padding: "5px"
-          }}
-          initial={{y: -2}}
-          animate={{y: 2}}
-          transition={{duration: 0.85, yoyo: Infinity}}
-        />
-        <Grid container spacing={3} style={{color: "white", padding: "20px", justifyContent: "right"}}>
-          {links.map((link) => (
-            <Grid item>
-              <motion.div
-                  initial={{y: 0, opacity: 0}}
-                  animate={{opacity: 1}}
-                  whileHover={{
-                      y: 1,
-                      color: "#9369db"
-                  }}
-                  transition={{ duration: 0.2 }}
-              >
-                <motion.a
-                  onClick={
-                    () => document.getElementById(link.id).scrollIntoView({behavior: 'smooth'})
-                  }
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    fontSize: "18px",
-                    cursor: "pointer"
-                  }}
-                >
-                  <Typography>{link.Name}</Typography>
-                </motion.a>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
-      <Container maxWidth="md" justifyContent="center" style={{textAlign: "center", color: "white", padding: "10px"}}>
-          
-          <br></br>
-          <br></br>
+    <div ref={myRef} className='bg-gray-900 h-screen'>
+        
+      <Navbar />
+
+      <div>
+        <div className='mt-12 max-w-7xl mx-auto justify-center text-center text-white p-2'>
+
           <motion.div 
-            style={{width: "200px", height: "200px", borderRadius: "50%", marginLeft: "auto", marginRight: "auto", padding: '2px',  background: "linear-gradient(90deg, rgba(0,255,249,1) 0%, rgba(29,82,253,1) 50%, rgba(147,105,219,1) 100%)"}} 
-            initial={{opacity: 0}} 
-            animate={{opacity: 1}} 
-            whileHover={{scale: 1.02}} 
-            transition={{duration: 0.2}}
+            className='w-72 h-72 w- rounded-full mx-auto p-1 bg-gradient-to-r from-cyan-500 to-indigo-500 shadow-lg shadow-indigo-500/50'
+            initial={{opacity: 0, y: 10}} 
+            animate={{opacity: 1, y: 0}} 
+            transition={{duration: 0.4, delay: 0.4}}
           >
+            <div
+              className='bg-gray-900 rounded-full w-[17.5rem] h-[17.5rem]'
+            >
               <motion.img 
                 src={profile} 
-                style={{width: "100%", height: "100%", borderRadius: "50%"}} 
+                className='w-[17.5rem] h-[17.5rem] rounded-full'
                 initial={{opacity: 0}} 
                 animate={{opacity: 1}}
-                transition={{duration: 0.2}}
+                transition={{duration: 0.4, delay: 0.4}}
                 alt="profile-pic"
               />
+            </div>
           </motion.div>
-          <br></br>
-          <br></br>
-          <Fade in mountOnEnter unmountOnExit style={{transitionDelay: "100ms", transitionDuration: "1000ms"}}>
-              <div>
-                  <Typography variant="h4" style={{fontWeight: "bold", marginBottom: "5px", fontSize: "40px"}}>Chris Farber</Typography>
-              </div>
-          </Fade>
-          {titles.map((title, idx) => (
-              <Fade in mountOnEnter unmountOnExit style={{transitionDelay: `${200 + 100 * idx}ms`, transitionDuration: "1000ms"}}>
-                  <div style={{display: "inline-block"}}>
-                    <Typography style={{margin: "15px", fontSize: "20px", borderBottom: "2px solid"}}>{title}</Typography>
-                  </div>
-              </Fade>
-          ))}
-          <br></br>
-          <br></br>
-          <div style={{display: "flex", margin: "0px auto", textAlign: 'center', justifyContent: "center", alignItems: "center"}}>
-              {contactLinks.map((contact) => (
-                  <a href={contact.Link} target="_blank">
-                      <motion.div 
-                          style={{
-                              width: "50px", 
-                              height: "50px", 
-                              margin: "0px 8px", 
-                              color: "#9369db",
-                              borderRadius: "50%", 
-                              border: "2px solid #9369db"
-                          }}
+          
+          
+          <p className='text-3xl md:text-4xl font-bold text-center mt-6 flex justify-center font-mono'>
+            <span className='text-indigo-500'>$</span>
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                .typeString('<span>chrisfarber.</span>')
+                .typeString('<span style="color: #6366f1;">info()</span>')
+                .start();
+              }}
+            />
+          </p>
+
+          <div className='flex gap-2 mt-2 justify-center'>
+            {titles.map((title, idx) => (
+              <motion.p 
+                initial={{opacity: 0, y: 5}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
+                className='m-2 text-xl font-semibold'
+              >
+                <span className='text-indigo-500 font-bold'><i className='fas fa-chevron-right' />&nbsp;</span>
+                {title}
+              </motion.p>
+            ))}
+          </div>
+
+          <div className='flex mx-auto text-center justify-center items-center mt-4 gap-2'>
+              {contactLinks.map((contact, idx) => (
+                <motion.div
+                  initial={{opacity: 0, y: 5}}
+                  animate={{opacity: 1, y: 0}}
+                  transition={{duration: 0.2, delay: 1.2 + 0.2 * idx}}
+                >
+                    <a href={contact.Link} target="_blank">
+                        <motion.div 
+                          className='w-14 h-14 text-indigo-500 rounded-full color-indigo-500 border-2 border-indigo-500 inline-flex flex-shrink-0 justify-center items-center'
                           initial={{y: 0}}
-                          whileHover={{y: -5}}
-                      >
-                          <div style={{marginTop: "12px"}}>{contact.Icon}</div>
-                      </motion.div>
-                  </a>
+                          whileHover={{y: -4}}
+                        >
+                            <span><i className={contact.Icon} /></span>
+                        </motion.div>
+                    </a>
+                </motion.div>
               ))}
           </div>
-          <br></br>
-          <Typography style={{fontSize: "18px", marginTop: "5px"}}>Hi, welcome to my website! Here, you can take a look at some of the projects I've done, contact me, and check out some of my other hobbies apart from coding.</Typography>
-          <br></br>
-      </Container>
-      <br></br>
+          <div className='max-w-2xl text-center text-white mx-auto my-6 text-lg'>
+            <p className='font-semibold text-2xl'>About Me</p>
+            <p className='my-2'>I am a high school student who is passionate about coding and violin. More specifically, I enjoy web development and machine learning, and hope to further these interests in college. More info below!</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
