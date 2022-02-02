@@ -6,7 +6,7 @@ import BottomHalf from "./Components/BottomHalf"
 const App = (props) => {
 
   return (
-    <div className="App" style={{xOverflow: "hidden"}}>
+    <div className="App overflow-x-hidden">
         <TopHalf />
         <BottomHalf />
     </div>

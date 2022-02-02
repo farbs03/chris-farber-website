@@ -8,7 +8,11 @@ import CloudUI from "../Assets/cloud-ui.PNG"
 import Kurricula from "../Assets/kurricula.PNG"
 import InHax from "../Assets/inhax.PNG"
 
+import ReactCardFlip from 'react-card-flip';
+
 import { motion } from 'framer-motion'
+
+import { ExternalLinkIcon } from '@heroicons/react/solid'
 
 const images = [
     {
@@ -45,7 +49,7 @@ const images = [
         image: CloudUI,
         href: "https://cloudui.netlify.app/",
         name: "Cloud UI",
-        color: "bg-gradient-to-tr from-sky-300 to-sky-500 hover:shadow-sky-500/20" 
+        color: "bg-gradient-to-tr from-sky-300 to-sky-500 hover:shadow-sky-500/40" 
     },
     {
         image: Kurricula,
@@ -61,14 +65,94 @@ const images = [
     }
 ];
 
+const MLProjects = [
+    {
+        title: "GPT2 Quote Generation",
+        href: "https://github.com/farbs03/quotegeneration",
+        description: "Quotes are generated using the GPT2 language model and webscraped text data.",
+        tags: [
+            'Python', 'Tensorflow', 'RNNs'
+        ]
+    },
+    {
+        title: "Image to Text",
+        href: "https://github.com/farbs03/googleCloudBackend",
+        description: "Using Google Cloud's Vision AI, this API takes an image and returns any text it detects.",
+        tags: [
+            'Node JS', 'Google Cloud', 'API'
+        ]
+    },
+    {
+        title: "MNIST Handwriting Recognition",
+        href: "https://github.com/farbs03/mnist_classification",
+        description: "Using Tensorflow and Keras, I trained a model to recognize handwritten digits with the MNIST data.",
+        tags: [
+            'Python', 'Tensorflow', 'Keras'
+        ]
+    },
+    {
+        title: "Linear Regression",
+        href: "https://github.com/",
+        description: "Basic linear regression implementation in vanilla Python, inspired by Stanford's Coursera ML Course.",
+        tags: [
+            'Python', 'ML'
+        ]
+    }
+]
+
+
 const tabs = [
     {title: 'Websites', icon: 'fas fa-code'},
     {title: 'Machine Learning', icon: 'fas fa-brain'}
 ]
 
+const WebsiteCard = ({image}) => {
+    return (
+        <a href={image.href} target='_blank'>
+            <div className={`h-36 w-full rounded-lg transition duration-200 ease-in hover:shadow-xl ${image.color}  p-1`}>
+                <div className='rounded-md h-full' style={{backgroundImage: `url(${image.image})`, backgroundSize: "100%", backgroundRepeat: "none"}} >       
+                    <div className='h-full inline-flex flex-shrink-0 items-center justify-center p-4 backdrop-blur-sm backdrop-brightness-75 w-full rounded-md hover:opacity-0 hover:backdrop-brightness-100 transition duration-200 ease-in'>
+                        <p className='font-semibold text-xl text-center text-black'>{image.name}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    )
+}
+
+const MLCard = ({project}) => {
+    return (
+        <div className='w-full rounded-lg rounded-t-none pt-1 transition duration-200 ease-in hover:shadow-xl'>
+            <div className='bg-gradient-to-r from-cyan-500 to-indigo-500 h-1 rounded-t-lg' />
+            <div className='bg-gray-700 p-4 rounded-lg rounded-t-none'>
+                <div className='mb-2'>
+                    <a href={project.href} target="_blank" className='flex gap-2 items-center mb-2 w-fit transition duration-200 ease-in hover:text-cyan-400'>
+                        <p className='font-semibold'>
+                            {project.title}
+                        </p>
+                        <ExternalLinkIcon className='w-5 h-5' />
+                    </a>
+                    <p className='font-semibold text-gray-500 text-sm'>
+                        {project.description}
+                    </p>
+                </div>
+                <div className='flex gap-2 items-center'>
+                    {project.tags.map((tag) => (
+                        <div className='text-xs px-2 py-1 font-semibold bg-gray-800 text-gray-500 rounded-lg'>
+                            {tag}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
 const Projects = () => {
 
     const [selected, setSelected] = useState("Websites")
+    const [flipped, setFlipped] = useState(false)
+
 
     return (
         <div>
@@ -92,6 +176,7 @@ const Projects = () => {
                 >
                     {images.map((image, idx) => (
                         <motion.div
+                            key={image.name}
                             initial={{opacity: 0, scale: 0.5, y: 10}}
                             animate={{opacity: 1, scale: 1, y: 0}}
                             transition={{duration: 0.4, delay: 0.2 + 0.2 * idx}}
@@ -99,24 +184,30 @@ const Projects = () => {
                             <motion.div
                                 whileHover={{y: -6}}
                             >
-                                <div className={`h-36 rounded-lg transition duration-200 ease-in hover:shadow-xl ${image.color}  p-1`}>
-                                    <a href={image.href} target='_blank'>
-                                        <div className='rounded-md h-full' style={{backgroundImage: `url(${image.image})`, backgroundSize: "100%", backgroundRepeat: "none"}} >
-                                            <div className='h-full inline-flex flex-shrink-0 items-center justify-center p-4 backdrop-blur-sm w-full rounded-lg hover:opacity-0 transition duration-200 ease-in'>
-                                                <p className='font-semibold text-xl text-center text-black'>{image.name}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                <WebsiteCard image={image} />
                             </motion.div>
                         </motion.div>
                     ))}
                 </motion.div>
                 :
-                <div>
-                    <p className='font-semibold text-center text-lg'>Coming soon :)</p>
-                    <p className='font-semibold text-center text-lg my-2'>Brown University pls accept me if you see this btw</p>
-                </div>
+                <motion.div 
+                    className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'
+                >
+                    {MLProjects.map((project, idx) => (
+                        <motion.div
+                            key={project.title}
+                            initial={{opacity: 0, scale: 0.5, y: 10}}
+                            animate={{opacity: 1, scale: 1, y: 0}}
+                            transition={{duration: 0.4, delay: 0.2 + 0.2 * idx}}
+                        >
+                            <motion.div
+                                whileHover={{y: -6}}
+                            >
+                                <MLCard project={project} />
+                            </motion.div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
             }
             
