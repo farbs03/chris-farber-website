@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Logo from "../Assets/logo.png"
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
 
     const links = [
-        {Name: 'Home', id: "home"},
         {Name: 'Projects', id: "projects"},
         {Name: 'Resume', id: "resume"},
     ]
@@ -41,32 +41,29 @@ const Navbar = () => {
                             onClick={
                                 () => document.getElementById(link.id).scrollIntoView({behavior: 'smooth'})
                             }
-                            className='text-inherit font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
+                            className='text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
                         >
                         <p>{link.Name}</p>
                         </motion.a>
                     </motion.div>
                 ))}
 
-                {/*
-                    <motion.div
-                        initial={{y: 0, opacity: 0}}
-                        animate={{opacity: 1}}
-                        whileHover={{
-                            y: 1,
-                        }}
-                        
-                        transition={{ duration: 0.2 }}
+                <motion.div
+                    initial={{y: 0, opacity: 0}}
+                    animate={{opacity: 1}}
+                    whileHover={{
+                        y: 1,
+                    }}
+                    
+                    transition={{ duration: 0.2 }}
+                >
+                    <NavLink
+                        to='/blog'
+                        className='text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
                     >
-                        <motion.a
-                            href='/'
-                            className='text-inherit font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
-                        >
-                            <p>Blog</p>
-                        </motion.a>
-                    </motion.div>
-                */}
-                
+                        <p>Blog</p>
+                    </NavLink>
+                </motion.div>
 
             </div>
         </div>

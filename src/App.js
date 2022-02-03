@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './App.css';
-import TopHalf from "./Components/TopHalf"
-import BottomHalf from "./Components/BottomHalf"
+import { Route, Routes } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import Blog from './Components/Blog/Blog';
+import Article from './Components/Blog/Article';
+import Footer from "./Components/Footer"
 
-const App = (props) => {
+const App = () => {
 
   return (
-    <div className="App overflow-x-hidden">
-        <TopHalf />
-        <BottomHalf />
+    <div>
+      <Routes>
+          <Route path='/blog' element={<Blog />}  />
+          <Route path='/blog/:article' element={<Article />}  />
+          <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }

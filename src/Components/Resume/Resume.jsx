@@ -2,7 +2,7 @@ import React from "react"
 
 import {motion} from "framer-motion"
 
-import resume from "../Assets/resume.png"
+import resume from "../../Assets/resume.png"
 import MusicPlayer from "./MusicPlayer"
 import Experience from "./Experience"
 
@@ -21,16 +21,8 @@ const Resume = () => {
                     </button>
                 </motion.div>
             </a>
-
-            <div className="max-w-xl mx-auto">
-                <img src={resume} alt='resume' />
-            </div>
-
-            {/* 
-            <Experience />
-            <MusicPlayer />
-            */}
-            
+ 
+            <Experience />            
             
         </div>
     )

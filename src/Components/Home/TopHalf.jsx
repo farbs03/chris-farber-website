@@ -2,15 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 
 import {motion} from "framer-motion"
 
-import profile from "../Assets/profile-pic.png"
-import Navbar from './Navbar'
+import profile from "../../Assets/profile-pic.png"
+import Navbar from '../Navbar'
 
 import Typewriter from 'typewriter-effect';
-import Wave from 'react-wavify';
 
 import NET from "vanta/dist/vanta.net.min.js"
-
-import lines from "../Assets/lines.PNG"
 
 const TopHalf = (props) => {
 

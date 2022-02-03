@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { useResizedWidth } from "../Utils/useResizedWidth";
+import { useResizedWidth } from "../../Utils/useResizedWidth";
 
 const calculateValueFromWidth = (
   value,

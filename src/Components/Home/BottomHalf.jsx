@@ -3,10 +3,9 @@ import React, {useState, useEffect} from "react"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-import Resume from "./Resume";
-import Projects from "./Projects";
+import Resume from "../Resume/Resume";
+import Projects from "../Projects/Projects";
 
-import Lines from "../Assets/lines.PNG"
 import Wave from "react-wavify";
 
 const BottomHalf = () => {
@@ -22,9 +21,9 @@ const BottomHalf = () => {
     });
 
     return (
-        <div className='bg-gray-100 dark:bg-gray-800'>
+        <div className='bg-gray-800'>
 
-            <div className='bg-gray-100 dark:bg-gray-900 h-10'>
+            <div className='bg-gray-900 h-10'>
                 <Wave 
                     fill='rgb(31, 41, 55)'
                     paused={false}
@@ -37,7 +36,7 @@ const BottomHalf = () => {
                 />
             </div>
 
-            <div className='bg-gray-100 dark:bg-gray-800 text-black dark:text-white'>
+            <div className='bg-gray-800 text-white'>
                 
                 <div className='max-w-7xl mx-auto p-6'>
                     
@@ -100,7 +99,7 @@ const BottomHalf = () => {
                                 </motion.div>
                             </>
                             :
-                            <div className='h-40' />
+                            <div className='h-72' />
                         }
                     </div>
                 </div>
