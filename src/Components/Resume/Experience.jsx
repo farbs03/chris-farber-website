@@ -18,12 +18,12 @@ const codingExperience = [
     {
         icon: <BookOpenIcon className='w-6 h-6 text-indigo-500' />,
         title: "Courses",
-        items: [["Stanford Coursera ML Course", "Inspirit AI Online Scholars", "Inspirit AI Deep Dives"]]
+        items: [["Stanford ML on Coursera", "Inspirit AI Online Scholars", "Inspirit AI Deep Dives"]]
     },
     {
         icon: <ChartBarIcon className='w-6 h-6 text-indigo-500' />,
         title: "Awards",
-        items: [['Community AI Fair Finalist', 'Congressional App Challenge Winner', 'Set A Good Example Award']]
+        items: [['Community AI Fair Finalist', 'Congressional A.C Winner', 'Set A Good Example Award']]
     },
 ]
 
@@ -86,7 +86,7 @@ const Experience = () => {
                     <div className='flex-grow h-[0.1rem] bg-gray-700' />
                 </motion.div>
 
-                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-3 justify-center gap-10 md:gap-20 w-full mx-auto'>
+                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-3 justify-center gap-10 md:gap-4 lg:gap-10 w-full'>
                     {codingExperience.map((section) => (
                         <motion.div variants={cardVariant}>
 
@@ -126,12 +126,12 @@ const Experience = () => {
                     <div className='flex-grow h-[0.1rem] bg-gray-700' />
                 </motion.div>
 
-                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-2 justify-center gap-10 md:gap-20 w-full mx-auto'>
+                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-2 justify-center gap-10 md:gap-16 w-full mx-auto'>
                     {orgs.map((org) => (
                         <motion.div variants={containerVariant}>
                             <motion.p variants={textVariant} className='font-semibold text-lg'>{org.title}</motion.p>
                             <motion.p variants={textVariant} className='font-semibold font-mono text-indigo-500 my-1'>{org.role}</motion.p>
-                            <motion.p variants={textVariant} className='font-semibold text-gray-400'>{org.description}</motion.p>
+                            <motion.p variants={textVariant} className='font-semibold text-gray-300'>{org.description}</motion.p>
                         </motion.div>
                     ))}
                 </motion.div>

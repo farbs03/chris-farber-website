@@ -111,7 +111,7 @@ const WebsiteCard = ({image}) => {
         <a href={image.href} target='_blank'>
             <div className={`h-36 w-full rounded-lg transition duration-200 ease-in hover:shadow-xl ${image.color}  p-1`}>
                 <div className='rounded-md h-full' style={{backgroundImage: `url(${image.image})`, backgroundSize: "100%", backgroundRepeat: "none"}} >       
-                    <div className='h-full inline-flex flex-shrink-0 items-center justify-center p-4 backdrop-blur-sm backdrop-brightness-75 w-full rounded-md hover:opacity-0 hover:backdrop-brightness-100 transition duration-200 ease-in'>
+                    <div className='h-full inline-flex flex-shrink-0 items-center justify-center p-4 backdrop-blur-sm w-full rounded-md hover:opacity-0 transition duration-200 ease-in'>
                         <p className='font-semibold text-xl text-center text-black'>{image.name}</p>
                     </div>
                 </div>
