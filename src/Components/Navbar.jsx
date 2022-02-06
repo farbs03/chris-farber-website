@@ -2,19 +2,21 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Logo from "../Assets/logo.png"
 import { NavLink } from 'react-router-dom'
+import {ClipboardListIcon, CollectionIcon, NewspaperIcon} from "@heroicons/react/outline"
+import {containerVariant, textVariant, navVariant} from "../Utils/variants"
 
 const Navbar = () => {
 
     const links = [
-        {Name: 'Projects', id: "projects"},
-        {Name: 'Resume', id: "resume"},
+        {name: 'Projects', id: "projects", icon: <CollectionIcon className='w-6 h-6' />},
+        {name: 'Resume', id: "resume", icon: <ClipboardListIcon className='w-6 h-6' />},
     ]
 
     const [clicked, setClicked] = useState(false)
 
     return (
-        <div className='text-white'>
-            <div className='flex items-center space-between'>
+        <motion.div variants={containerVariant} initial="hidden" animate="show" className='text-white'>
+            <motion.div variants={textVariant} className='flex items-center space-between'>
                 <motion.img 
                     src={Logo}
                     alt="logo"
@@ -28,46 +30,46 @@ const Navbar = () => {
                     transition={{duration: 0.85, yoyo: Infinity}}
                 />
 
-                <div className='flex gap-4 text-white p-5 w-fit justify-right text-right ml-auto'>
+                <motion.div variants={containerVariant} className='flex gap-6 text-white p-5 w-fit justify-right text-right ml-auto'>
                     {links.map((link) => (
                         <motion.div
-                            initial={{y: 0, opacity: 0}}
-                            animate={{opacity: 1}}
-                            whileHover={{
-                                y: 1,
-                            }}
-                            
-                            transition={{ duration: 0.2 }}
+                            key={link.name}
+                            initial={{y: 0}}
+                            whileHover={{y: 2}}
+                            className='w-fit'
                         >
-                            <motion.a
-                                onClick={
-                                    () => document.getElementById(link.id).scrollIntoView({behavior: 'smooth'})
-                                }
-                                className='text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
-                            >
-                            <p>{link.Name}</p>
-                            </motion.a>
+                            <motion.div variants={textVariant} >
+                                <motion.a
+                                    onClick={
+                                        () => document.getElementById(link.id).scrollIntoView({behavior: 'smooth'})
+                                    }
+                                    className='flex items-center gap-2 text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
+                                >
+                                    <p>{link.name}</p>
+                                    {link.icon}
+                                </motion.a>
+                            </motion.div> 
                         </motion.div>
                     ))}
 
                     <motion.div
-                        initial={{y: 0, opacity: 0}}
-                        animate={{opacity: 1}}
-                        whileHover={{
-                            y: 1,
-                        }}
-                        
-                        transition={{ duration: 0.2 }}
+                        key='blog'
+                        initial={{y: 0}}
+                        whileHover={{y: 2}}
+                        className='w-fit'
                     >
-                        <NavLink
-                            to='/blog'
-                            className='text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
-                        >
-                            <p>Blog</p>
-                        </NavLink>
+                        <motion.div variants={textVariant}>
+                            <NavLink
+                                to='/blog'
+                                className='flex gap-2 items-center text-inherit text-lg font-semibold cursor-pointer hover:text-indigo-500 transition duration-100 ease-in'
+                            >
+                                <p>Blog</p>
+                                <NewspaperIcon className='w-6 h-6' />
+                            </NavLink>
+                        </motion.div>
                     </motion.div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
             <div className='relative w-fit ml-4'>
                 {clicked ?
                     <motion.div
@@ -94,7 +96,7 @@ const Navbar = () => {
                     />
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }
 

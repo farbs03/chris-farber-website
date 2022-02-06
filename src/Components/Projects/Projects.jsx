@@ -132,7 +132,7 @@ const MLCard = ({project}) => {
                         </p>
                         <ExternalLinkIcon className='w-5 h-5' />
                     </a>
-                    <p className='font-semibold text-gray-500 text-sm'>
+                    <p className='font-semibold text-gray-400 text-sm'>
                         {project.description}
                     </p>
                 </div>

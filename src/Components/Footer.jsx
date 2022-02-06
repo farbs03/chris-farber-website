@@ -17,10 +17,10 @@ const Footer = () => {
     return (
         <div className='footer text-white p-4 relative'>
             <div className='max-w-7xl w-full mx-auto'>
-                <p className='font-semibold font-mono text-center text-indigo-500'>{"made with 🧡 by chris farber 🐌"}</p>
+                <p className='font-semibold font-mono text-center text-indigo-500'>{"made with ❤️ by chris farber 🐌"}</p>
                 <div className='flex flex-wrap gap-4 justify-center my-2'>
                     {links.map((link) => (
-                        <a href={link.Link} target="_blank" className='text-sm font-semibold hover:text-indigo-500 transition duration-200 ease-in'>{link.Name}</a>
+                        <a key={link.Link} href={link.Link} target="_blank" className='text-sm font-semibold hover:text-indigo-500 transition duration-200 ease-in'>{link.Name}</a>
                     ))}
                 </div>
                 <p className='font-semibold text-sm text-gray-500 text-center'>© <a className='hover:text-indigo-500 transition duration-200 ease-in' href="https://chrisfarbs.com/">chrisfarbs.com</a> 2022</p>

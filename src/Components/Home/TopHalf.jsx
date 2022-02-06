@@ -80,7 +80,7 @@ const TopHalf = (props) => {
           </motion.div>
           
           
-          <p className='text-2xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
+          <div className='text-2xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
             <span className='text-indigo-500 mr-1'>$</span>
             <Typewriter
               onInit={(typewriter) => {
@@ -90,11 +90,12 @@ const TopHalf = (props) => {
                 .start();
               }}
             />
-          </p>
+          </div>
 
           <div className='flex gap-4 my-4 justify-center'>
             {titles.map((title, idx) => (
-              <motion.p 
+              <motion.p
+                key={title}
                 initial={{opacity: 0, y: 5}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
@@ -112,6 +113,7 @@ const TopHalf = (props) => {
                   initial={{opacity: 0, y: 5}}
                   animate={{opacity: 1, y: 0}}
                   transition={{duration: 0.2, delay: 1.2 + 0.2 * idx}}
+                  key={contact.Name}
                 >
                     <a href={contact.Link} target="_blank">
                         <motion.div 

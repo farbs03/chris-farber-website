@@ -21,7 +21,7 @@ const BottomHalf = () => {
     });
 
     return (
-        <div className='bg-gray-800'>
+        <div>
 
             <div className='bg-gray-900 h-10'>
                 <Wave 
@@ -36,7 +36,7 @@ const BottomHalf = () => {
                 />
             </div>
 
-            <div className='bg-gray-800 text-white'>
+            <div>
                 
                 <div className='max-w-7xl mx-auto p-6'>
                     
