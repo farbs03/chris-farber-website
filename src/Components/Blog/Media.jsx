@@ -17,10 +17,10 @@ const Media = () => {
     ]
     
     return (
-        <motion.div variants={containerVariant} className='py-4 w-fit'>
+        <motion.div className='py-4 w-fit md:w-[126px]'>
                     
             <motion.div variants={textVariant} className='w-fit'>
-                <NavLink to='/blog' className='font-semibold flex gap-2 items-center text-indigo-500 hover:text-indigo-400 transition duration-200 ease-in'>
+                <NavLink to='/blog' className='font-semibold flex gap-2 items-center text-primary hover:border-b-1 transition duration-200 ease-in'>
                     <ArrowLeftIcon className='w-5 h-5' />
                     Back to blogs
                 </NavLink>
@@ -55,7 +55,7 @@ const Media = () => {
                     items-center 
                     justify-center 
                     flex-shrink-0
-                    hover:text-indigo-500 
+                    hover:text-primary
                     hover:scale-110 
                     active:scale-90 
                     transition 
@@ -68,13 +68,13 @@ const Media = () => {
             </motion.div>
             
             <motion.div variants={textVariant} className='flex md:block items-center gap-2'>
-                <p className='font-semibold text-center mb-2 mr-2 hidden md:block md:text-white'>Contact</p>
-                <div className="flex md:flex-col gap-4 items-center text-gray-400 pl-1">
+                <p className='font-semibold text-center mb-2 mr-2 md:mr-0 hidden md:block text-main-text'>Contact</p>
+                <div className="flex md:flex-col gap-4 items-center text-gray-400 pl-1 md:pl-0">
                     {links.map((link) => (
                         <a
                             key={link.href}
                             href={link.Link}
-                            className='hover:text-indigo-500 transition duration-200 ease-in'
+                            className='hover:text-primary transition duration-200 ease-in'
                             target="_blank"
                         >
                             <span><i className={link.Icon} /></span>

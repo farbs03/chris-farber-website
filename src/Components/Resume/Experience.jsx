@@ -8,7 +8,7 @@ import CountUp from 'react-countup'
 
 const codingExperience = [
     {
-        icon: <CodeIcon className='w-6 h-6 text-indigo-500' />,
+        icon: <CodeIcon className='w-6 h-6 text-primary' />,
         title: "Technologies",
         items: [
             ['Python', 'Numpy', 'Pandas', 'Tensorflow', 'Keras'],
@@ -16,12 +16,12 @@ const codingExperience = [
         ]
     },
     {
-        icon: <BookOpenIcon className='w-6 h-6 text-indigo-500' />,
+        icon: <BookOpenIcon className='w-6 h-6 text-primary' />,
         title: "Courses",
         items: [["Stanford ML on Coursera", "Inspirit AI Online Scholars", "Inspirit AI Deep Dives"]]
     },
     {
-        icon: <ChartBarIcon className='w-6 h-6 text-indigo-500' />,
+        icon: <ChartBarIcon className='w-6 h-6 text-primary' />,
         title: "Awards",
         items: [['Community AI Fair Finalist', 'Congressional A.C Winner', 'Set A Good Example Award']]
     },
@@ -76,14 +76,14 @@ const education = [
 const Experience = () => {
 
     return (
-        <motion.div variants={containerVariant} initial="hidden" animate="show" className='print:block'>
+        <motion.div variants={containerVariant} initial="hidden" animate="show" className='text-main-text max-w-4xl mx-auto'>
 
             <motion.div className='my-20' variants={containerVariant}>
 
-                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono text-xl mb-4'>
-                    <p className='text-indigo-500'>01.</p>
+                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono font-semibold text-xl mb-4'>
+                    <p className='text-primary'>01.</p>
                     <p>Coding Experience</p>
-                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-700' />
+                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-500' />
                 </motion.div>
 
                 <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-3 justify-center gap-10 md:gap-4 lg:gap-10 w-full'>
@@ -91,7 +91,7 @@ const Experience = () => {
                         <motion.div variants={cardVariant} key={section.title}>
 
                             <div className='w-fit mx-auto'>
-                                <div className='w-12 h-12 mx-auto inline-flex flex-shrink-0 items-center justify-center border-2 border-indigo-500 rounded-full'>
+                                <div className='w-12 h-12 mx-auto inline-flex flex-shrink-0 items-center justify-center border-2 border-primary rounded-full'>
                                     {section.icon}
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ const Experience = () => {
                                     <div>
                                         {itemList.map((item) => (
                                             <p key={item} className='flex items-center font-semibold text-md'>
-                                                <ChevronRightIcon className='w-5 h-5 text-indigo-500' />
+                                                <ChevronRightIcon className='w-5 h-5 text-primary' />
                                                 {item}
                                             </p>
                                         ))}
@@ -120,18 +120,18 @@ const Experience = () => {
 
             <motion.div className='my-20' variants={containerVariant}>
 
-                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono text-xl mb-4'>
-                    <p className='text-indigo-500'>02.</p>
+                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono font-semibold text-xl mb-4'>
+                    <p className='text-primary'>02.</p>
                     <p>Activities and Leadership</p>
-                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-700' />
+                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-500' />
                 </motion.div>
 
-                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-2 justify-center gap-10 md:gap-16 w-full mx-auto'>
+                <motion.div variants={containerVariant} className='my-8 grid md:grid-cols-2 justify-center gap-10 w-full mx-auto'>
                     {orgs.map((org) => (
                         <motion.div key={org.title} variants={containerVariant}>
                             <motion.p variants={textVariant} className='font-semibold text-lg'>{org.title}</motion.p>
-                            <motion.p variants={textVariant} className='font-semibold font-mono text-indigo-500 my-1'>{org.role}</motion.p>
-                            <motion.p variants={textVariant} className='font-semibold text-gray-300'>{org.description}</motion.p>
+                            <motion.p variants={textVariant} className='font-semibold font-mono text-primary my-1'>{org.role}</motion.p>
+                            <motion.p variants={textVariant} className='text-sm'>{org.description}</motion.p>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -139,20 +139,20 @@ const Experience = () => {
 
             <motion.div className='my-20' variants={containerVariant}>
 
-                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono text-xl mb-4'>
-                    <p className='text-indigo-500'>03.</p>
+                <motion.div variants={textVariant} className='flex items-center gap-2 font-mono font-semibold text-xl mb-4'>
+                    <p className='text-primary'>03.</p>
                     <p>Education</p>
-                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-700' />
+                    <div className='hidden md:block flex-grow h-[0.1rem] bg-gray-500' />
                 </motion.div>
 
-                <motion.div variants={containerVariant} className='my-8 grid grid-cols-2 md:grid-cols-4 justify-center gap-10 md:gap-20 w-fit mx-auto'>
+                <motion.div variants={containerVariant} className='my-8 grid grid-cols-2 md:grid-cols-4 justify-center gap-10 w-fit mx-auto'>
                     {education.map((item) => (
                         <motion.div key={item.title} variants={containerVariant} className='justify-center'>
                             <motion.div variants={cardVariant}>
                                 <motion.p variants={textVariant} className='font-semibold text-sm'>{item.title}</motion.p>
                                 <motion.p 
                                     variants={textVariant} 
-                                    className='font-bold text-2xl text-indigo-500'
+                                    className='font-bold text-2xl text-primary'
                                 >
                                     {item.text}
                                 </motion.p>

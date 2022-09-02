@@ -3,7 +3,7 @@ import TopHalf from './TopHalf'
 
 const Home = () => {
     return (
-        <div className="overflow-x-hidden print:text-white print:bg-gray-800">
+        <div className="overflow-x-hidden">
             <TopHalf />
             <BottomHalf />
         </div>

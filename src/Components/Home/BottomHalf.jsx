@@ -21,18 +21,18 @@ const BottomHalf = () => {
     });
 
     return (
-        <div>
+        <div className='bg-secondary-bg'>
 
-            <div className='bg-gray-900 h-10'>
+            <div className='bg-main-bg'>
                 <Wave 
-                    fill='rgb(31, 41, 55)'
+                    fill='var(--theme-secondary-bg)'
                     paused={false}
                     options={{
                         amplitude: 5,
                         speed: 0.25,
                         points: 3
                     }}
-                    style={{height: "40px"}}
+                    style={{height: "40px", marginBottom: "-20px"}}
                 />
             </div>
 
@@ -54,7 +54,7 @@ const BottomHalf = () => {
                                     transition={{duration: 0.4, delay: 0.2}}
                                     
                                 >
-                                    <div className='w-1 bg-gradient-to-t from-cyan-500 to-indigo-500 h-8' />
+                                    <div className='w-1 bg-indigo-500 h-8' />
                                     <p className='font-semibold text-2xl mr-2'>Projects</p>
                                     
                                 </motion.div>
@@ -88,7 +88,7 @@ const BottomHalf = () => {
                                     
                                 >
                                     <p className='font-semibold text-2xl mr-2'>Resume</p>
-                                    <div className='w-1 bg-gradient-to-t from-cyan-500 to-indigo-500 h-8' />
+                                    <div className='w-1 bg-indigo-500 h-8' />
                                 </motion.div>
                                 <motion.div
                                     initial={{opacity: 0, y: 50}}

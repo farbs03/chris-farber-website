@@ -8,12 +8,20 @@ import Navbar from '../Navbar'
 import Typewriter from 'typewriter-effect';
 
 import NET from "vanta/dist/vanta.net.min.js"
+import { applyTheme } from '../../Utils/applyTheme';
+import ParticleRender from './ParticleRender';
 
-const TopHalf = (props) => {
+const TopHalf = () => {
 
   const [vantaEffect, setVantaEffect] = useState(0)
   const myRef = useRef(null)
 
+  let theme = JSON.parse(localStorage.getItem('theme')) 
+  useEffect(() => {
+    theme = JSON.parse(localStorage.getItem('theme')) 
+  }, [])
+
+  /*
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -25,8 +33,8 @@ const TopHalf = (props) => {
           minHeight: 420.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: "rgb(99, 102, 241)",
-          backgroundColor: "rgb(17, 24, 39)",
+          color: theme['--theme-primary'],
+          backgroundColor: theme['--theme-bg'],
           spacing: 30.00,
           maxDistance: 25.00,
           points: 5
@@ -37,6 +45,7 @@ const TopHalf = (props) => {
       if (vantaEffect) vantaEffect.destroy()
     }
   }, [vantaEffect])
+  */
 
   const titles = [
     'Student',
@@ -51,13 +60,25 @@ const TopHalf = (props) => {
     {Name: "Instagram", Icon: 'fab fa-instagram fa-lg', Link: "https://www.instagram.com/cfarbs03/"}
   ]
 
+  const icon = {
+    hidden: {
+      pathLength: 0,
+      fill: "rgba(255, 255, 255, 0)"
+    },
+    visible: {
+      pathLength: 1,
+      fill: "rgba(255, 255, 255, 1)"
+    }
+  }
+
+
   return (
-    <div ref={myRef} className='bg-gray-900 min-h-screen'>
+    <div className='bg-main-bg min-h-screen'>
         
       <Navbar />
 
-      <div>
-        <div className='mt-4 md:mt-12 max-w-7xl mx-auto justify-center text-center text-white p-2'>
+      <div className='z-10'>
+        <div className='mt-4 md:mt-12 max-w-7xl mx-auto justify-center text-center text-main-text p-4 z-10'>
 
           <motion.div 
             className='w-52 h-52 md:w-64 md:h-64 rounded-full mx-auto p-1 bg-gradient-to-r from-cyan-500 to-indigo-500 shadow-lg shadow-indigo-500/50'
@@ -66,7 +87,7 @@ const TopHalf = (props) => {
             transition={{duration: 0.4, delay: 0.4}}
           >
             <div
-              className='bg-gray-900 rounded-full w-[200px] h-[200px]  md:w-[248px] md:h-[248px]'
+              className='bg-main-bg rounded-full w-[200px] h-[200px]  md:w-[248px] md:h-[248px]'
             >
               <motion.img 
                 src={profile} 
@@ -80,13 +101,13 @@ const TopHalf = (props) => {
           </motion.div>
           
           
-          <div className='text-2xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
-            <span className='text-indigo-500 mr-1'>$</span>
+          <div className='text-3xl text-main-text md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
+            <span className={`mr-1 text-primary`}>$</span>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                .typeString('<span>chrisfarber.</span>')
-                .typeString('<span style="color: #6366f1;">info()</span>')
+                .typeString(`<span class="text-main-text">chrisfarber.</span>`)
+                .typeString(`<span class="text-primary">info()</span>`)
                 .start();
               }}
             />
@@ -99,9 +120,9 @@ const TopHalf = (props) => {
                 initial={{opacity: 0, y: 5}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
-                className='text-xl font-semibold'
+                className='text-xl font-semibold text-main-text'
               >
-                <span className='text-indigo-500'><i className='fas fa-chevron-right' />&nbsp;</span>
+                <span className='text-primary'><i className='fas fa-chevron-right' />&nbsp;</span>
                 {title}
               </motion.p>
             ))}
@@ -117,7 +138,7 @@ const TopHalf = (props) => {
                 >
                     <a href={contact.Link} target="_blank">
                         <motion.div 
-                          className='w-14 h-14 text-indigo-500 rounded-full color-indigo-500 border-2 border-indigo-500 inline-flex flex-shrink-0 justify-center items-center'
+                          className='w-14 h-14 text-primary rounded-full color-indigo-500 border-2 border-primary inline-flex flex-shrink-0 justify-center items-center'
                           initial={{y: 0}}
                           whileHover={{y: -4}}
                         >
@@ -131,7 +152,7 @@ const TopHalf = (props) => {
             initial={{opacity: 0, y: 10}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.4, delay: 2.0}} 
-            className='max-w-2xl text-center text-white mx-auto my-6 text-lg'
+            className='max-w-2xl text-center text-main-text mx-auto my-6 text-lg'
           >
             <p className='font-semibold text-2xl'>About Me</p>
             <p className='my-2'>I am a high school student who is passionate about coding and violin. More specifically, I enjoy web development and machine learning, and hope to further these interests in college. More info below!</p>

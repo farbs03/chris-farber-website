@@ -24,7 +24,7 @@ const DisplayCard = ({data}) => {
                 <p className='text-gray-400 text-lg line-clamp-1'>{data.text}</p>
                 <NavLink
                     to={`/blog/post-id=${data.id}`} 
-                    className='w-fit font-semibold text-indigo-500 hover:text-indigo-400 flex gap-2 items-center'
+                    className='w-fit font-semibold text-indigo-500 hover:text-indigo-400 transition duration-200 ease-in flex gap-2 items-center'
                 >
                     <p>Go to article</p> 
                     <ArrowRightIcon className='w-5 h-5' />
@@ -37,7 +37,7 @@ const DisplayCard = ({data}) => {
 const Blog = () => {
         
     return (
-        <div>
+        <div className='text-main-text bg-main-bg'>
             <motion.div 
                 variants={containerVariant} 
                 initial="hidden" 

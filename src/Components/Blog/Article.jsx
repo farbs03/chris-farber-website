@@ -29,7 +29,7 @@ const Article = () => {
                     <Navbar />
                 </motion.div>
 
-                <div className='flex gap-12'>
+                <div className='flex gap-10'>
 
                     <div className='hidden md:block'>
                         <Media />
@@ -37,27 +37,34 @@ const Article = () => {
 
                     {post &&
                         <>
-                            <div className='md:p-4 my-4 md:my-0'>
-                                <motion.p variants={textVariant} className='text-gray-500 font-semibold'>{post.date}</motion.p>
-                                <motion.h1 variants={textVariant} className='font-bold text-3xl'>{post.title}</motion.h1>
-                                <motion.div variants={containerVariant} className="flex items-center gap-2 mt-4">
-                                    {post.tags && post.tags.map((tag) => (
-                                        <motion.div variants={textVariant} className='bg-gray-700 w-fit rounded-md text-xs font-semibold px-2 py-1'>
-                                            {tag}
-                                        </motion.div>
-                                    ))}
-                                </motion.div>
+                            <article className='md:p-4 my-4 md:my-0 max-w-[650px] w-full'>
+
+                                <div className='not-prose'>
                                 
-                                <div className='md:hidden'>
-                                    <Media />
+                                    <motion.p variants={textVariant} className='text-gray-600 font-semibold'>{post.date}</motion.p>
+                                    
+                                    <motion.h1 variants={textVariant} className='text-3xl font-bold text-main-text mt-2'>{post.title}</motion.h1>
+
+                                    <motion.p variants={textVariant} className='italic text-xl font-semibold my-4 text-gray-500'>Chris Farber</motion.p>
+
+                                    <motion.div variants={containerVariant} className="flex items-center gap-2 mb-4">
+                                        {post.tags && post.tags.map((tag) => (
+                                            <motion.div variants={textVariant} className='bg-primary text-white w-fit rounded-md text-xs font-semibold px-2 py-1'>
+                                                {tag}
+                                            </motion.div>
+                                        ))}
+                                    </motion.div>
+                                    
+                                    <motion.div variants={containerVariant} className='md:hidden'>
+                                        <Media />
+                                    </motion.div>
                                 </div>
 
-                                <article className='prose lg:prose-lg prose-invert md:my-4'>
-                                    <motion.div variants={textVariant}>
-                                        {post.text}
-                                    </motion.div>
-                                </article>
-                            </div>                            
+                                <motion.div variants={textVariant}>
+                                    {post.text}
+                                </motion.div>
+
+                            </article>                            
                         </>
                     }
                 </div>

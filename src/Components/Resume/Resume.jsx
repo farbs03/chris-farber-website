@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 
 import {motion} from "framer-motion"
 
@@ -6,10 +6,12 @@ import resume from "../../Assets/resume.png"
 import MusicPlayer from "./MusicPlayer"
 import Experience from "./Experience"
 import { DownloadIcon } from "@heroicons/react/solid"
+import Pdf from "react-to-pdf"
+
 
 const Resume = () => {
 
-    const resumeLink = './resume.pdf'
+    const resumeLink = './chris_farber_resume.pdf'
 
     return (
         <div>
