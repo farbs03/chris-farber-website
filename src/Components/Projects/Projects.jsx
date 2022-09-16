@@ -81,8 +81,15 @@ const Projects = () => {
                 <motion.div 
                     className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'
                 >
-                    {websites.map((website) => (
-                        <WebsiteCard project={website} />
+                    {websites.map((website, idx) => (
+                        <motion.div
+                            key={website.name}
+                            initial={{opacity: 0, scale: 0.5, y: 10}}
+                            animate={{opacity: 1, scale: 1, y: 0}}
+                            transition={{duration: 0.4, delay: 0.2 + 0.2 * idx}}
+                        >
+                            <WebsiteCard project={website} />
+                        </motion.div>
                     ))}
                 </motion.div>
                 :

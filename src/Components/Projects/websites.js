@@ -1,6 +1,6 @@
 import IncentivaHome from "../../Assets/incentiva-home.png"
 import AIStuff from "../../Assets/ai-stuff-image.png"
-import MentalHealthBot from "../../Assets/mental-health-bot-image.png"
+import PrimaryRecord from "../../Assets/primary-record.PNG"
 import YoutubeClone from "../../Assets/youtube-clone-home.png"
 import InstagramClone from "../../Assets/instagram-clone-home.png"
 import CloudUI from "../../Assets/cloud-ui.png"
@@ -21,9 +21,9 @@ export const websites = [
         color: "bg-gradient-to-tr from-green-300 to-green-500 hover:shadow-green-500/20"
     },
     {
-        image: MentalHealthBot,
-        href: "https://mentalhealthbot.netlify.app/",
-        name: "Mental Health Chatbot",
+        image: PrimaryRecord,
+        href: "https://primary-record.netlify.app/",
+        name: "Primary Record",
         color: "bg-gradient-to-tr from-blue-300 to-blue-500 hover:shadow-blue-500/20"
     },
     {

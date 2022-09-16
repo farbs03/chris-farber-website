@@ -10,6 +10,7 @@ import Typewriter from 'typewriter-effect';
 import NET from "vanta/dist/vanta.net.min.js"
 import { applyTheme } from '../../Utils/applyTheme';
 import ParticleRender from './ParticleRender';
+import ContactButton from './ContactButton';
 
 const TopHalf = () => {
 
@@ -21,7 +22,6 @@ const TopHalf = () => {
     theme = JSON.parse(localStorage.getItem('theme')) 
   }, [])
 
-  /*
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -45,7 +45,6 @@ const TopHalf = () => {
       if (vantaEffect) vantaEffect.destroy()
     }
   }, [vantaEffect])
-  */
 
   const titles = [
     'Student',
@@ -73,7 +72,7 @@ const TopHalf = () => {
 
 
   return (
-    <div className='bg-main-bg min-h-screen'>
+    <div ref={myRef} className='bg-main-bg min-h-screen'>
         
       <Navbar />
 
@@ -130,22 +129,7 @@ const TopHalf = () => {
 
           <div className='flex mx-auto text-center justify-center items-center my-4 gap-4'>
               {contactLinks.map((contact, idx) => (
-                <motion.div
-                  initial={{opacity: 0, y: 5}}
-                  animate={{opacity: 1, y: 0}}
-                  transition={{duration: 0.2, delay: 1.2 + 0.2 * idx}}
-                  key={contact.Name}
-                >
-                    <a href={contact.Link} target="_blank">
-                        <motion.div 
-                          className='w-14 h-14 text-primary rounded-full color-indigo-500 border-2 border-primary inline-flex flex-shrink-0 justify-center items-center'
-                          initial={{y: 0}}
-                          whileHover={{y: -4}}
-                        >
-                            <span><i className={contact.Icon} /></span>
-                        </motion.div>
-                    </a>
-                </motion.div>
+                <ContactButton contact={contact} idx={idx} />
               ))}
           </div>
           <motion.div
@@ -155,7 +139,7 @@ const TopHalf = () => {
             className='max-w-2xl text-center text-main-text mx-auto my-6 text-lg'
           >
             <p className='font-semibold text-2xl'>About Me</p>
-            <p className='my-2'>I am a high school student who is passionate about coding and violin. More specifically, I enjoy web development and machine learning, and hope to further these interests in college. More info below!</p>
+            <p className='my-2'>I am a freshman at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>
           </motion.div>
         </div>
       </div>
