@@ -6,8 +6,6 @@ import resume from "../../Assets/resume.png"
 import MusicPlayer from "./MusicPlayer"
 import Experience from "./Experience"
 import { DownloadIcon } from "@heroicons/react/solid"
-import Pdf from "react-to-pdf"
-
 
 const Resume = () => {
 

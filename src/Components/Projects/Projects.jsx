@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-import ReactCardFlip from 'react-card-flip';
-
 import { motion } from 'framer-motion'
 
 import { ExternalLinkIcon } from '@heroicons/react/solid'

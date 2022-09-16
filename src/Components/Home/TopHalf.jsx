@@ -8,8 +8,6 @@ import Navbar from '../Navbar'
 import Typewriter from 'typewriter-effect';
 
 import NET from "vanta/dist/vanta.net.min.js"
-import { applyTheme } from '../../Utils/applyTheme';
-import ParticleRender from './ParticleRender';
 import ContactButton from './ContactButton';
 
 const TopHalf = () => {
