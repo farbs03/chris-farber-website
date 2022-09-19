@@ -2,10 +2,10 @@ import IncentivaHome from "../../Assets/incentiva-home.png"
 import AIStuff from "../../Assets/ai-stuff-image.png"
 import PrimaryRecord from "../../Assets/primary-record.PNG"
 import YoutubeClone from "../../Assets/youtube-clone-home.png"
-import InstagramClone from "../../Assets/instagram-clone-home.png"
+import InstagramClone from "../../Assets/instagram-clone-home.PNG"
 import CloudUI from "../../Assets/cloud-ui.PNG"
-import Kurricula from "../../Assets/kurricula.png"
-import InHax from "../../Assets/inhax.png"
+import Kurricula from "../../Assets/kurricula.PNG"
+import InHax from "../../Assets/inhax.PNG"
 
 export const websites = [
     {
