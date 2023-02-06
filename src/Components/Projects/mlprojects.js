@@ -23,6 +23,7 @@ export const mlprojects = [
             'Python', 'Tensorflow', 'Keras'
         ]
     },
+    /*
     {
         title: "Linear Regression",
         href: "https://github.com/",
@@ -31,4 +32,5 @@ export const mlprojects = [
             'Python', 'ML'
         ]
     }
+    */
 ]

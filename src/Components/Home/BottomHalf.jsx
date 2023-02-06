@@ -15,17 +15,33 @@ const BottomHalf = () => {
         rootMargin: '-80px 0px',
     });
 
-    const [resumeRef, resumeInView] = useInView({
+    const [experienceRef, experienceInView] = useInView({
         triggerOnce: true,
         rootMargin: '-80px 0px',
     });
+    
+
+    const [darkMode, setDarkMode] = useState(false)
+    var darkModeStatus = false;
+
+    if(typeof window !== 'undefined')
+        darkModeStatus = JSON.parse(localStorage.getItem('chrisfarbs-dark'))
+    
+    useEffect(() => {
+        if(darkModeStatus) {
+            setDarkMode(darkModeStatus)
+        }
+        console.log(darkModeStatus)
+    }, [darkModeStatus])
+    
 
     return (
-        <div className='bg-secondary-bg'>
-
-            <div className='bg-main-bg'>
+        <div>
+            
+            {/*
+            <div className='bg-white dark:bg-gray-800'>
                 <Wave 
-                    fill='var(--theme-secondary-bg)'
+                    fill={"#1f2937"}
                     paused={false}
                     options={{
                         amplitude: 5,
@@ -35,6 +51,7 @@ const BottomHalf = () => {
                     style={{height: "40px", marginBottom: "-20px"}}
                 />
             </div>
+            */}
 
             <div>
                 
@@ -48,14 +65,14 @@ const BottomHalf = () => {
                         {projectsInView ?
                             <>
                                 <motion.div 
-                                    className='my-4 flex  items-center mr-auto w-fit gap-2'
+                                    className='my-4 flex  items-center mr-auto w-fit gap-4'
                                     initial={{opacity: 0, x: 50}}
                                     animate={{opacity: 1, x: 0}}
                                     transition={{duration: 0.4, delay: 0.2}}
                                     
                                 >
                                     <div className='w-1 bg-indigo-500 h-8' />
-                                    <p className='font-semibold text-2xl mr-2'>Projects</p>
+                                    <p className='font-bold text-3xl'>Projects</p>
                                     
                                 </motion.div>
 
@@ -74,20 +91,20 @@ const BottomHalf = () => {
                     </div>                    
                     
                     <div 
-                        ref={resumeRef}
+                        ref={experienceRef}
                         className='mt-20'
-                        id="resume"
+                        id="experience"
                     >
-                        {resumeInView ?
+                        {experienceInView ?
                             <>
                                 <motion.div 
-                                    className='my-4 text-right flex justify-right items-center ml-auto w-fit gap-2'
+                                    className='my-4 text-right flex justify-right items-center ml-auto w-fit gap-4'
                                     initial={{opacity: 0, x: 50}}
                                     animate={{opacity: 1, x: 0}}
                                     transition={{duration: 0.4, delay: 0.2}}
                                     
                                 >
-                                    <p className='font-semibold text-2xl mr-2'>Resume</p>
+                                    <p className='font-bold text-3xl'>Experience</p>
                                     <div className='w-1 bg-indigo-500 h-8' />
                                 </motion.div>
                                 <motion.div

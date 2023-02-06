@@ -9,13 +9,13 @@ import { DownloadIcon } from "@heroicons/react/solid"
 
 const Resume = () => {
 
-    const resumeLink = './chris_farber_resume.pdf'
+    const resumeLink = './Chris Farber Resume.pdf'
 
     return (
         <div>
-            <a href={resumeLink} download className='block w-fit ml-auto'>
+            <a href={resumeLink} download className='block w-fit ml-auto mb-20'>
                 <button
-                    className='bg-indigo-500 mt-2 rounded-lg px-4 py-3 hover:shadow-xl hover:shadow-indigo-500/20 active:shadow-none transition duration-200 ease-in'
+                    className='bg-indigo-500 mt-2 rounded-full px-6 py-3 hover:shadow-xl hover:shadow-indigo-500/20 active:shadow-none transition duration-200 ease-in'
                 >
                     <p className='font-semibold text-white flex items-center gap-2'>
                         Download Resume <DownloadIcon className='w-5 h-5' />
@@ -23,7 +23,7 @@ const Resume = () => {
                 </button>
             </a>
  
-            <Experience />            
+            {/* <Experience /> */}            
             
         </div>
     )

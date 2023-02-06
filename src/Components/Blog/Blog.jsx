@@ -37,7 +37,7 @@ const DisplayCard = ({data}) => {
 const Blog = () => {
         
     return (
-        <div className='text-main-text bg-main-bg'>
+        <div className='bg-white dark:bg-gray-900 text-black dark:text-white'>
             <motion.div 
                 variants={containerVariant} 
                 initial="hidden" 

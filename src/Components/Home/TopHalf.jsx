@@ -68,23 +68,25 @@ const TopHalf = () => {
     }
   }
 
+  const [clicked, setClicked] = useState(false)
+
 
   return (
-    <div ref={myRef} className='bg-main-bg min-h-screen'>
+    <div ref={myRef} className='bg-gray-900 text-white min-h-screen flex flex-col'>
         
-      <Navbar />
-
-      <div className='z-10'>
-        <div className='mt-4 md:mt-12 max-w-7xl mx-auto justify-center text-center text-main-text p-4 z-10'>
+      <Navbar />      
+      
+      <div className='z-10 flex-grow grid place-items-center'>
+        <div className='max-w-7xl mx-auto justify-center text-center text-white p-4 z-10'>
 
           <motion.div 
-            className='w-52 h-52 md:w-64 md:h-64 rounded-full mx-auto p-1 bg-gradient-to-r from-cyan-500 to-indigo-500 shadow-lg shadow-indigo-500/50'
+            className='w-60 h-60 md:w-64 md:h-64 rounded-full mx-auto p-1 bg-primary shadow-lg shadow-indigo-500/50'
             initial={{opacity: 0, y: 10}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: 0.4, delay: 0.4}}
           >
             <div
-              className='bg-main-bg rounded-full w-[200px] h-[200px]  md:w-[248px] md:h-[248px]'
+              className='bg-gray-900 rounded-full w-[232px] h-[232px]  md:w-[248px] md:h-[248px]'
             >
               <motion.img 
                 src={profile} 
@@ -98,12 +100,12 @@ const TopHalf = () => {
           </motion.div>
           
           
-          <div className='text-3xl text-main-text md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
+          <div className='text-3xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
             <span className={`mr-1 text-primary`}>$</span>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                .typeString(`<span class="text-main-text">chrisfarber.</span>`)
+                .typeString(`<span>chrisfarber.</span>`)
                 .typeString(`<span class="text-primary">info()</span>`)
                 .start();
               }}
@@ -117,7 +119,7 @@ const TopHalf = () => {
                 initial={{opacity: 0, y: 5}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
-                className='text-xl font-semibold text-main-text'
+                className='text-lg md:text-xl font-semibold'
               >
                 <span className='text-primary'><i className='fas fa-chevron-right' />&nbsp;</span>
                 {title}
@@ -134,7 +136,7 @@ const TopHalf = () => {
             initial={{opacity: 0, y: 10}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.4, delay: 2.0}} 
-            className='max-w-2xl text-center text-main-text mx-auto my-6 text-lg'
+            className='max-w-2xl text-center mx-auto my-6 md:text-lg'
           >
             <p className='font-semibold text-2xl'>About Me</p>
             <p className='my-2'>I am a freshman at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>

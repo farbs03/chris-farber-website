@@ -1,59 +1,83 @@
-import IncentivaHome from "../../Assets/incentiva-home.png"
+import Incentiva from "../../Assets/incentiva-logo.png"
 import AIStuff from "../../Assets/ai-stuff-image.png"
-import PrimaryRecord from "../../Assets/primary-record.PNG"
+import PrimaryRecord from "../../Assets/primary-record-icon.PNG"
 import YoutubeClone from "../../Assets/youtube-clone-home.png"
-import InstagramClone from "../../Assets/instagram-clone-home.PNG"
-import CloudUI from "../../Assets/cloud-ui.PNG"
-import Kurricula from "../../Assets/kurricula.PNG"
-import InHax from "../../Assets/inhax.PNG"
+import InstagramClone from "../../Assets/instagram-logo.png"
+import CloudUI from "../../Assets/cloud-logo.png"
+import Kurricula from "../../Assets/kurriculalogo.png"
+import InHax from "../../Assets/inhax-logo.png"
 
 export const websites = [
     {
-        image: IncentivaHome,
+        image: Incentiva,
         href: "https://incentiva.app/",
-        name: "Incentiva",
-        color: "bg-gradient-to-tr from-violet-300 to-violet-500 hover:shadow-violet-500/20"
+        linkPreview: "incentiva.app",
+        title: "Incentiva",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-violet-500",
+        bg: "bg-gradient-to-tr from-violet-300 to-violet-500 shadow-violet-500/20",
     },
+    /*
     {
         image: AIStuff,
         href: "https://aistuff.netlify.app/",
-        name: "AI Stuff",
-        color: "bg-gradient-to-tr from-green-300 to-green-500 hover:shadow-green-500/20"
+        title: "AI Stuff",
+        color: "text-violet-500",
+        bg: "bg-gradient-to-tr from-green-300 to-green-500 hover:shadow-green-500/20"
     },
+    */
     {
         image: PrimaryRecord,
         href: "https://primary-record.netlify.app/",
-        name: "Primary Record",
-        color: "bg-gradient-to-tr from-blue-300 to-blue-500 hover:shadow-blue-500/20"
+        linkPreview: "primary-record.netlify.app",
+        title: "Primary Record",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-blue-500",
+        bg: "bg-gradient-to-tr from-blue-300 to-blue-500 shadow-blue-500/20"
     },
+    /*
     {
         image: YoutubeClone,
         href: "https://youtube-clone-mui.netlify.app/",
-        name: "Youtube Clone",
-        color: "bg-gradient-to-tr from-red-300 to-red-500 hover:shadow-red-500/20"
+        title: "Youtube Clone",
+        color: "text-violet-500",
+        bg: "bg-gradient-to-tr from-red-300 to-red-500 hover:shadow-red-500/20"
     },
+    */
     {
         image: InstagramClone,
         href: "https://instagram-clone-chakra.netlify.app/",
-        name: "Instagram Clone",
-        color: "bg-gradient-to-tr from-orange-500 to-violet-500 hover:shadow-orange-500/20"
+        linkPreview: "instagram-clone-chakra.netlify.app",
+        title: "Instagram Clone",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-orange-500",
+        bg: "bg-gradient-to-tr from-orange-500 to-violet-500 shadow-orange-500/20"
     },
     {
         image: CloudUI,
         href: "https://cloudui.netlify.app/",
-        name: "Cloud UI",
-        color: "bg-gradient-to-tr from-sky-300 to-sky-500 hover:shadow-sky-500/40" 
+        linkPreview: "cloudui.netlify.app",
+        title: "Cloud UI",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-sky-500",
+        bg: "bg-gradient-to-tr from-sky-300 to-sky-500 shadow-sky-500/40" 
     },
     {
         image: Kurricula,
         href: "https://kurricula.netlify.app/",
-        name: "Kurricula",
-        color: "bg-gradient-to-tr from-emerald-500 to-indigo-500 hover:shadow-emerald-500/20" 
+        linkPreview: "kurricula.netlify.app",
+        title: "Kurricula",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-emerald-500",
+        bg: "bg-gradient-to-tr from-emerald-500 to-indigo-500 shadow-emerald-500/20" 
     },
     {
         image: InHax,
         href: "https://inhax.dev/",
-        name: "Indiana Hax",
-        color: "bg-gradient-to-tr from-yellow-200 to-rose-300 hover:shadow-rose-300/20" 
+        linkPreview: "inhax.dev",
+        title: "Indiana Hax",
+        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        color: "group-hover:text-yellow-500",
+        bg: "bg-gradient-to-tr from-yellow-200 to-rose-300 shadow-rose-300/20" 
     }
 ];

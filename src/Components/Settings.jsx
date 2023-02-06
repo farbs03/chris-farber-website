@@ -4,85 +4,54 @@ import { Fragment, useState, useEffect } from 'react'
 import {applyTheme} from "../Utils/applyTheme"
 import lightTheme from "../Themes/lightTheme"
 import darkTheme from "../Themes/darkTheme"
+import { MoonIcon, SunIcon } from '@heroicons/react/outline'
 
 export default function Settings({open, setOpen}) {
 
-    let currTheme = localStorage.getItem('theme')
-    const [theme, setTheme] = useState(currTheme)
+    //dark mode stuff :)
+    const [darkMode, setDarkMode] = useState(false)
+    var darkModeStatus = false;
 
-    const changeTheme = (newTheme) => {
-        setTheme(newTheme)
-        localStorage.setItem('theme', JSON.stringify(newTheme))
-        applyTheme(newTheme)
+    if(typeof window !== 'undefined')
+        darkModeStatus = JSON.parse(localStorage.getItem('chrisfarbs-dark'))
+    
+    //stores dark mode preferences in local storage
+    useEffect(() => {
+        if(!darkModeStatus) {
+            localStorage.setItem('chrisfarbs-dark', JSON.stringify(false))
+        }
+        else {
+            setDarkMode(darkModeStatus)
+            if(darkModeStatus === true) {
+                document.documentElement.classList.add('dark')
+            }
+            else {
+                document.documentElement.classList.remove('dark')
+            }
+        }
+    }, [darkModeStatus])
+
+    //function ran to switch dark and light mode when button is hit
+    const toggleDarkMode = () => {
+        const newVal = !darkMode
+        setDarkMode(newVal)
+        localStorage.setItem('chrisfarbs-dark', JSON.stringify(newVal))
+
+        if (newVal === true) {
+            document.documentElement.classList.add('dark')
+        } 
+        else {
+            document.documentElement.classList.remove('dark')
+        }
     }
 
     return (
-        <Transition appear show={open} as={Fragment}>
-            <Dialog
-                as="div"
-                className="fixed inset-0 z-10 overflow-y-auto"
-                onClose={() => setOpen(false)}
-            >
-                <div className="min-h-screen px-4 text-center">
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-                    </Transition.Child>
-
-                    <span
-                        className="inline-block h-screen align-middle"
-                        aria-hidden="true"
-                    >
-                        &#8203;
-                    </span>
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
-                    >
-                        <div className="bg-secondary-bg inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform shadow-xl rounded-2xl">
-                            <Dialog.Title
-                                as="h2"
-                                className="text-lg font-medium leading-6 text-main-text"
-                            >
-                                Choose Theme Below
-                            </Dialog.Title>
-
-                            <div className="mt-2">
-                                <div className="flex items-center gap-2">
-                                    <button onClick={() => changeTheme(lightTheme)} className='rounded-md bg-gray-500 text-white font-semibold px-4 py-2'>
-                                        Light Theme
-                                    </button>
-                                    <button onClick={() => changeTheme(darkTheme)} className='rounded-md bg-gray-500 text-white font-semibold px-4 py-2'>
-                                        Dark Theme
-                                    </button>
-                                </div>    
-                            </div>
-
-                            <div className="mt-4">
-                                <button
-                                    type="button"
-                                    className="bg-primary text-white px-4 py-2 rounded-md font-semibold"
-                                    onClick={() => setOpen(false)}
-                                >
-                                    Done
-                                </button>
-                            </div>
-                        </div>
-                    </Transition.Child>
-                </div>
-            </Dialog>
-        </Transition>
+        <button onClick={toggleDarkMode} className='w-8 h-8 text-black dark:text-white rounded-md inline-flex justify-center flex-shrink-0 items-center bg-gray-100 dark:bg-gray-800 hover:text-primary hover:ring-2 hover:ring-primary hover:bg-white dark:hover:bg-gray-900 transition duration-200 ease-in'>
+            {darkMode ? 
+                <MoonIcon className='w-6 h-6' />
+                :
+                <SunIcon className='w-6 h-6' />
+            }
+        </button>
     )
 }

@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div>
-      <div className='min-h-screen bg-main-bg text-main-text'>
+      <div className='dark min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white'>
         <Routes>
             <Route path='/blog' element={<Blog />}  />
             <Route path='/blog/:article' element={<Article />}  />

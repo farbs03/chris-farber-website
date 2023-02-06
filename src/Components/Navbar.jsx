@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useViewportScroll } from 'framer-motion'
 import Logo from "../Assets/logo.png"
 import { NavLink } from 'react-router-dom'
 import {ClipboardListIcon, CogIcon, CollectionIcon, NewspaperIcon} from "@heroicons/react/outline"
@@ -10,16 +10,18 @@ const Navbar = () => {
 
     const links = [
         {name: 'Projects', id: "projects", icon: <CollectionIcon className='w-6 h-6 hidden md:block' />},
-        {name: 'Resume', id: "resume", icon: <ClipboardListIcon className='w-6 h-6 hidden md:block' />},
+        {name: 'Experience', id: "experience", icon: <ClipboardListIcon className='w-6 h-6 hidden md:block' />},
     ]
 
-    const [clicked, setClicked] = useState(false)
+    
 
     const [open, setOpen] = useState(false)
 
+    const { scrollYProgress } = useViewportScroll()
+
     return (
-        <motion.div variants={containerVariant} initial="hidden" animate="show" className='text-white'>
-            <motion.div variants={textVariant} className='flex items-center space-between p-4'>
+        <motion.div variants={containerVariant} initial="hidden" animate="show" className={`text-white ${scrollYProgress !== 0 ? "bg-gray-800/10 backdrop-blur-sm" : "bg-white dark:bg-gray-900"} top-0 z-50 w-full`}>
+            <motion.div variants={textVariant} className='flex items-center justify-between p-4'>
                 <motion.img 
                     src={Logo}
                     alt="logo"
@@ -33,7 +35,7 @@ const Navbar = () => {
                     transition={{duration: 0.85, yoyo: Infinity}}
                 />
 
-                <motion.div variants={containerVariant} className='flex items-center gap-4 text-main-text w-fit justify-right text-right ml-auto'>
+                <motion.div variants={containerVariant} className='flex items-center gap-4 w-fit'>
                     {links.map((link) => (
                         <motion.div
                             key={link.name}
@@ -71,43 +73,29 @@ const Navbar = () => {
                             </NavLink>
                         </motion.div>
                     </motion.div>
-
-                    <button onClick={() => setOpen(true)} className='w-8 h-8 text-main-text rounded-md inline-flex justify-center flex-shrink-0 items-center bg-secondary-bg hover:text-primary hover:ring-2 hover:ring-primary hover:shadow-lg hover:shadow-primary/20 hover:bg-main-bg transition duration-200 ease-in'>
-                        <CogIcon className='w-6 h-6' />
-                    </button>
-
-                    <Settings open={open} setOpen={setOpen} />
+                    {/*
+                    <motion.div
+                        key='settings'
+                        className='w-fit hidden md:block'
+                        variants={textVariant}
+                    >
+                        <Settings />
+                    </motion.div>
+                    */}
 
                 </motion.div>
-            </motion.div>
-            <div className='relative w-fit ml-4'>
-                {clicked ?
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 0.4}}
-                        
-                    >
-                        <div onClick={() => setClicked(false)} style={{cursor: "pointer"}} className='w-8 h-8 rounded-full bg-secondary-bg flex items-center justify-center'>
-                            🐌
-                        </div>
-                        <p className='text-sm text-main-text bg-secondary-bg p-2 rounded-full rounded-tl-none mt-1 ml-4 font-semibold'>
-                            Hi there!
-                        </p>
-                    </motion.div>
-                    :
-                    <motion.div
-                        className='w-8 h-8 rounded-full bg-secondary-bg'
-                        initial={{scale: 0.9}}
-                        animate={{scale: 1.0}}
-                        transition={{duration: 0.4, repeat: Infinity, repeatType: "reverse"}}
-                        onClick={() => setClicked(true)}
-                        whileHover={{scale: 0.9}}
-                        style={{cursor: "pointer"}}
-                    />
-                }
+                
+               {/*
+                <motion.div
+                    key='settings'
+                    className='w-fit block md:hidden'
+                    variants={containerVariant}
+                >
+                    <Settings />
+                </motion.div>
+                                */}
 
-            </div>
+            </motion.div>
         </motion.div>
     )
 }
