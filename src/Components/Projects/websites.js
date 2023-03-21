@@ -49,7 +49,7 @@ export const websites = [
         href: "https://instagram-clone-chakra.netlify.app/",
         linkPreview: "instagram-clone-chakra.netlify.app",
         title: "Instagram Clone",
-        description: "Visual clone of the Instagram website.",
+        description: "Visual clone of the Instagram website, made with Chakra UI.",
         color: "group-hover:text-orange-500",
         bg: "bg-gradient-to-tr from-orange-500 to-violet-500 shadow-orange-500/20"
     },
@@ -58,7 +58,7 @@ export const websites = [
         href: "https://cloudui.netlify.app/",
         linkPreview: "cloudui.netlify.app",
         title: "Cloud UI",
-        description: "Components made for React JS, created with Tailwind CSS.",
+        description: "Components made for React JS, created with Tailwind CSS and Framer Motion.",
         color: "group-hover:text-sky-500",
         bg: "bg-gradient-to-tr from-sky-300 to-sky-500 shadow-sky-500/40" 
     },
