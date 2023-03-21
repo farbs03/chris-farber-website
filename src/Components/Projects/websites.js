@@ -13,7 +13,7 @@ export const websites = [
         href: "https://incentiva.app/",
         linkPreview: "incentiva.app",
         title: "Incentiva",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Task manager website with AI that assesses which tasks make you the happiest.",
         color: "group-hover:text-violet-500",
         bg: "bg-gradient-to-tr from-violet-300 to-violet-500 shadow-violet-500/20",
     },
@@ -31,7 +31,7 @@ export const websites = [
         href: "https://primary-record.netlify.app/",
         linkPreview: "primary-record.netlify.app",
         title: "Primary Record",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Categorizes the text from a photo of a prescription label that the user uploads.",
         color: "group-hover:text-blue-500",
         bg: "bg-gradient-to-tr from-blue-300 to-blue-500 shadow-blue-500/20"
     },
@@ -49,7 +49,7 @@ export const websites = [
         href: "https://instagram-clone-chakra.netlify.app/",
         linkPreview: "instagram-clone-chakra.netlify.app",
         title: "Instagram Clone",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Visual clone of the Instagram website.",
         color: "group-hover:text-orange-500",
         bg: "bg-gradient-to-tr from-orange-500 to-violet-500 shadow-orange-500/20"
     },
@@ -58,7 +58,7 @@ export const websites = [
         href: "https://cloudui.netlify.app/",
         linkPreview: "cloudui.netlify.app",
         title: "Cloud UI",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Components made for React JS, created with Tailwind CSS.",
         color: "group-hover:text-sky-500",
         bg: "bg-gradient-to-tr from-sky-300 to-sky-500 shadow-sky-500/40" 
     },
@@ -67,7 +67,7 @@ export const websites = [
         href: "https://kurricula.netlify.app/",
         linkPreview: "kurricula.netlify.app",
         title: "Kurricula",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Website that allows students to see and leave reviews on courses they've taken.",
         color: "group-hover:text-emerald-500",
         bg: "bg-gradient-to-tr from-emerald-500 to-indigo-500 shadow-emerald-500/20" 
     },
@@ -76,7 +76,7 @@ export const websites = [
         href: "https://inhax.dev/",
         linkPreview: "inhax.dev",
         title: "Indiana Hax",
-        description: "This website is pretty cool, it does good things, and I don't feel like writing a description rn.",
+        description: "Information page on Indiana Hax, the hackathon organization I created.",
         color: "group-hover:text-yellow-500",
         bg: "bg-gradient-to-tr from-yellow-200 to-rose-300 shadow-rose-300/20" 
     }
