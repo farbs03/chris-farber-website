@@ -20,7 +20,7 @@ const Navbar = () => {
     const { scrollYProgress } = useViewportScroll()
 
     return (
-        <motion.div variants={containerVariant} initial="hidden" animate="show" className={`text-white ${scrollYProgress !== 0 ? "bg-gray-800/10 backdrop-blur-sm" : "bg-white dark:bg-gray-900"} top-0 z-50 w-full`}>
+        <motion.div variants={containerVariant} initial="hidden" animate="show" className={`text-white top-0 z-50 w-full`}>
             <motion.div variants={textVariant} className='flex items-center justify-between p-4'>
                 <motion.img 
                     src={Logo}
@@ -65,7 +65,7 @@ const Navbar = () => {
                     >
                         <motion.div variants={textVariant}>
                             <NavLink
-                                to='/blog'
+                                to='#'
                                 className='flex gap-2 items-center text-inherit text-lg font-semibold cursor-pointer hover:text-primary transition duration-100 ease-in'
                             >
                                 <p>Blog</p>

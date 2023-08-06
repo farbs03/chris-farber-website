@@ -9,7 +9,7 @@ import { DownloadIcon } from "@heroicons/react/solid"
 
 const Resume = () => {
 
-    const resumeLink = './Chris Farber Resume.pdf'
+    const resumeLink = './Chris Farber Resume (3).pdf'
 
     return (
         <div>
