@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import './footer.css'
-
 const Footer = () => {
 
     const links = [
@@ -17,7 +15,7 @@ const Footer = () => {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className='footer bg-gray-900 text-main-text p-4 relative'>
+        <div className='text-main-text p-4 relative bg-gray-900'>
             <div className='max-w-7xl w-full mx-auto'>
                 <p className='font-semibold font-mono text-center text-primary'>{"made with ❤️ by chris farber 🐌"}</p>
                 <div className='flex flex-wrap gap-4 justify-center my-2'>
