@@ -16,16 +16,16 @@ import darkTheme from './Themes/darkTheme';
 
 const App = () => {
 
-  let theme = JSON.parse(localStorage.getItem('theme'))
-  useEffect(() => {
-    if(!theme) {
-      localStorage.setItem('theme', JSON.stringify(darkTheme))
-      applyTheme(darkTheme)
-    }
-    else {
-      applyTheme(theme)
-    }
-  }, [])
+  // let theme = JSON.parse(localStorage.getItem('theme'))
+  // useEffect(() => {
+  //   if(!theme) {
+  //     localStorage.setItem('theme', JSON.stringify(darkTheme))
+  //     applyTheme(darkTheme)
+  //   }
+  //   else {
+  //     applyTheme(theme)
+  //   }
+  // }, [])
 
   return (
     <div>

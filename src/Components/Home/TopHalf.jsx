@@ -139,7 +139,7 @@ const TopHalf = () => {
             className='max-w-2xl text-center mx-auto my-6 md:text-lg'
           >
             <p className='font-semibold text-2xl'>About Me</p>
-            <p className='my-2'>I am a freshman at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>
+            <p className='my-2'>I am a sophomore at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>
           </motion.div>
         </div>
       </div>
