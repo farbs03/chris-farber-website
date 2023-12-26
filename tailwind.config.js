@@ -10,6 +10,9 @@ module.exports = {
         'main-text': "var(--theme-text)",
         'main-bg': "var(--theme-bg)",
         'secondary-bg': "var(--theme-secondary-bg)"
+      },
+      fontFamily: {
+        'times': ["Times New Roman"]
       }
     },
   },

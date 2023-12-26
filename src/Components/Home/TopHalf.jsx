@@ -15,11 +15,6 @@ const TopHalf = () => {
   const [vantaEffect, setVantaEffect] = useState(0)
   const myRef = useRef(null)
 
-  let theme = JSON.parse(localStorage.getItem('theme')) 
-  useEffect(() => {
-    theme = JSON.parse(localStorage.getItem('theme')) 
-  }, [])
-
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -31,8 +26,8 @@ const TopHalf = () => {
           minHeight: 420.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: theme['--theme-primary'],
-          backgroundColor: theme['--theme-bg'],
+          color: "#6366f1",
+          backgroundColor: "#111827",
           spacing: 30.00,
           maxDistance: 25.00,
           points: 5
