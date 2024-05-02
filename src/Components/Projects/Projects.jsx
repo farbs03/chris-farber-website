@@ -26,6 +26,7 @@ const Projects = () => {
             <div className='flex items-center my-6 drop-shadow-lg dark:drop-shadow-none bg-white dark:bg-gray-700 rounded-full p-2 w-fit'>
                 {tabs.map((tab) => (
                     <button 
+                        key={tab.title}
                         className={`${selected === tab.title ? "text-primary transition duration-200 ease-in" : ""} flex gap-2 font-semibold text-center px-4 py-2 bg-transparent hover:text-primary transition duration-200 ease-in`}
                         onClick={() => setSelected(tab.title)}
                     >

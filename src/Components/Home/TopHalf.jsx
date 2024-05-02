@@ -2,14 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 
 import {motion} from "framer-motion"
 
-import profile from "../../Assets/profile-pic.png"
+import profile from "../../Assets/updated-pfp.jpg"
 import Navbar from '../Navbar'
 
 import Typewriter from 'typewriter-effect';
 
 import NET from "vanta/dist/vanta.net.min.js"
 import ContactButton from './ContactButton';
-
 const TopHalf = () => {
 
   const [vantaEffect, setVantaEffect] = useState(0)
@@ -63,25 +62,53 @@ const TopHalf = () => {
     }
   }
 
+  const circleVariants = {
+    hidden: { pathLength: 0, opacity: 0, stroke: "white" },
+    visible: {
+        pathLength: 1,
+        opacity: 1,
+        stroke: "#6366f1",
+        transition: {
+          pathLength: { type: "spring", duration: 2.4, bounce: 0 },
+          opacity: { duration: 0.01 },
+          duration: 0.4,
+          delay: 0.4
+        }
+    }
+  }
+
   const [clicked, setClicked] = useState(false)
 
-
   return (
-    <div ref={myRef} className='bg-gray-900 text-white min-h-screen flex flex-col'>
+    <div ref={myRef} className='bg-gray-900 text-white h-[100dvh] flex flex-col'>
         
       <Navbar />      
       
       <div className='z-10 flex-grow grid place-items-center'>
         <div className='max-w-7xl mx-auto justify-center text-center text-white p-4 z-10'>
-
           <motion.div 
-            className='w-60 h-60 md:w-64 md:h-64 rounded-full mx-auto p-1 bg-primary shadow-lg shadow-indigo-500/50'
+            className='w-64 z-0 aspect-square relative grid place-items-center rounded-full mx-auto shadow-lg shadow-indigo-500/50'
             initial={{opacity: 0, y: 10}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: 0.4, delay: 0.4}}
           >
+            <motion.svg
+              className="z-10 rotate-[270deg]"
+              viewBox="-0.5 -0.5 65 65" // Adjust the viewbox values to fit your div size
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.circle 
+                cx="32"
+                cy="32"
+                r="32"
+                variants={circleVariants}
+                strokeLinecap="round"
+                fill="transparent"
+              />
+            </motion.svg>
             <div
-              className='bg-gray-900 rounded-full w-[232px] h-[232px]  md:w-[248px] md:h-[248px]'
+              className='absolute bg-gray-900 rounded-full w-full aspect-square z-0'
             >
               <motion.img 
                 src={profile} 

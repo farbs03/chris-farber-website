@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <motion.div variants={containerVariant} initial="hidden" animate="show" className={`text-white top-0 z-50 w-full`}>
-            <motion.div variants={textVariant} className='flex items-center justify-between p-4'>
+            <motion.div variants={textVariant} className='flex items-center justify-between p-6'>
                 <motion.img 
                     src={Logo}
                     alt="logo"
