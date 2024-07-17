@@ -72,7 +72,7 @@ const TopHalf = () => {
           pathLength: { type: "spring", duration: 2.4, bounce: 0 },
           opacity: { duration: 0.01 },
           duration: 0.4,
-          delay: 0.4
+          delay: 0.8
         }
     }
   }
@@ -80,7 +80,7 @@ const TopHalf = () => {
   const [clicked, setClicked] = useState(false)
 
   return (
-    <div ref={myRef} className='bg-gray-900 text-white h-[100dvh] flex flex-col'>
+    <div ref={myRef} className='bg-gray-900 text-white h-screen flex flex-col'>
         
       <Navbar />      
       

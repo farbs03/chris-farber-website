@@ -11,8 +11,8 @@ import InHax from "../../Assets/inhax-logo.png";
 export const websites = [
   {
     image: aire,
-    href: "https://aire.vercel.app/",
-    linkPreview: "aire.vercel.app",
+    href: "https://useaire.tech/",
+    linkPreview: "useaire.tech",
     title: "aire",
     description:
       "Tailors your resume to a job posting using AI. Additionally, AI is used to parse information from your resume.",
