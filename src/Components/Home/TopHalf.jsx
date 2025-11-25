@@ -41,7 +41,7 @@ const TopHalf = () => {
   const titles = [
     'Student',
     'Developer',
-    'Musician'
+    'Researcher'
   ]
 
   const contactLinks = [
@@ -80,14 +80,14 @@ const TopHalf = () => {
   const [clicked, setClicked] = useState(false)
 
   return (
-    <div ref={myRef} className='bg-gray-900 text-white h-screen flex flex-col'>
+    <div ref={myRef} className='flex flex-col h-screen text-white bg-gray-900'>
         
       <Navbar />      
       
-      <div className='z-10 flex-grow grid place-items-center'>
-        <div className='max-w-7xl mx-auto justify-center text-center text-white p-4 z-10'>
+      <div className='z-10 grid flex-grow place-items-center'>
+        <div className='z-10 justify-center p-4 mx-auto text-center text-white max-w-7xl'>
           <motion.div 
-            className='w-64 z-0 aspect-square relative grid place-items-center rounded-full mx-auto shadow-lg shadow-indigo-500/50'
+            className='relative z-0 grid w-64 mx-auto rounded-full shadow-lg aspect-square place-items-center shadow-indigo-500/50'
             initial={{opacity: 0, y: 10}} 
             animate={{opacity: 1, y: 0}} 
             transition={{duration: 0.4, delay: 0.4}}
@@ -108,11 +108,11 @@ const TopHalf = () => {
               />
             </motion.svg>
             <div
-              className='absolute bg-gray-900 rounded-full w-full aspect-square z-0'
+              className='absolute z-0 w-full bg-gray-900 rounded-full aspect-square'
             >
               <motion.img 
                 src={profile} 
-                className='rounded-full w-full h-full'
+                className='w-full h-full rounded-full'
                 initial={{opacity: 0}} 
                 animate={{opacity: 1}}
                 transition={{duration: 0.4, delay: 0.4}}
@@ -122,7 +122,7 @@ const TopHalf = () => {
           </motion.div>
           
           
-          <div className='text-3xl md:text-4xl font-bold text-center my-4 flex justify-center font-mono'>
+          <div className='flex justify-center my-4 font-mono text-3xl font-bold text-center md:text-4xl'>
             <span className={`mr-1 text-primary`}>$</span>
             <Typewriter
               onInit={(typewriter) => {
@@ -134,14 +134,14 @@ const TopHalf = () => {
             />
           </div>
 
-          <div className='flex gap-4 my-4 justify-center'>
+          <div className='flex justify-center gap-4 my-4'>
             {titles.map((title, idx) => (
               <motion.p
                 key={title}
                 initial={{opacity: 0, y: 5}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.4, delay: 0.6 + 0.2 * idx}}
-                className='text-lg md:text-xl font-semibold'
+                className='text-lg font-semibold md:text-xl'
               >
                 <span className='text-primary'><i className='fas fa-chevron-right' />&nbsp;</span>
                 {title}
@@ -149,7 +149,7 @@ const TopHalf = () => {
             ))}
           </div>
 
-          <div className='flex mx-auto text-center justify-center items-center my-4 gap-4'>
+          <div className='flex items-center justify-center gap-4 mx-auto my-4 text-center'>
               {contactLinks.map((contact, idx) => (
                 <ContactButton contact={contact} idx={idx} />
               ))}
@@ -158,10 +158,10 @@ const TopHalf = () => {
             initial={{opacity: 0, y: 10}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.4, delay: 2.0}} 
-            className='max-w-2xl text-center mx-auto my-6 md:text-lg'
+            className='max-w-2xl mx-auto my-6 text-center md:text-lg'
           >
-            <p className='font-semibold text-2xl'>About Me</p>
-            <p className='my-2'>I am a junior at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>
+            <p className='text-2xl font-semibold'>About Me</p>
+            <p className='my-2'>I am a senior at Purdue University studying Computer Science. I enjoy machine learning and web development, and hope to keep furthering these interests. More info below!</p>
           </motion.div>
         </div>
       </div>
